@@ -1,0 +1,18 @@
+@import url("comon.css");
+@import url("header.css");
+
+/* Слайдер */
+.slider__contein {
+	position: relative;
+	height: 100%;
+}
+
+.slider {
+	height: 90vh;
+}
+
+.open__car__about {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}

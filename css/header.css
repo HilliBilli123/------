@@ -1,0 +1,10 @@
+.header {
+	background-color: black;
+	padding: 20px 0;
+	position: sticky;
+	top: 0;
+}
+
+.header__contein__menu {
+	justify-content: space-around;
+}
