@@ -1,0 +1,9 @@
+.admin__left__menu{
+    width: 400px;
+    background-color: black;
+    text-align: center;
+    letter-spacing: 5px;
+}
+.admin__panel__body{
+    flex: 1 1 auto;
+}
