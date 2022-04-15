@@ -1,18 +1,190 @@
 @import url("comon.css");
 @import url("header.css");
+@import url("swiper-bundle.min.css");
 
 /* Слайдер */
+.page__body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
 .slider__contein {
 	position: relative;
 	height: 100%;
 }
 
-.slider {
-	height: 90vh;
+.slider__content {
+	height: 100vh;
+	position: relative;
+}
+
+.detailed__contain {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	align-items: flex-end;
+	
+
+}
+
+.detailed__contant {
+	flex-direction: column;
+	justify-content: center;
+	/* align-items: center; */
+	width: 15vw;
+	height: 10vw;
+	margin-left: 100px;
+	margin-bottom: 50px;
+}
+
+.detailed__contant > *:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.detailed__content__title {
+	font-size: 48px;
+	font-weight: 700;
+}
+
+.detailed__content__text {
+	font-size: 36px;
+	/* font-weight: 700; */
 }
 
 .open__car__about {
-	position: absolute;
-	bottom: 0;
-	left: 0;
+	padding: 10px;
+	text-align: center;
+	background-color: #fff;
+	color: black;
+	margin-top: 10px;
+	font-size: 20px;
+	font-weight: 600;
+	transition: all 0.5s;
+}
+
+.open__car__about:hover{
+	background-color: #000;
+	color: #fff;
+}
+
+/* Стрелки */
+.image-slider .swiper-button-prev::after,
+.image-slider .swiper-button-next::after {
+    color: #fff;
+    font-size: 1.5vw;
+	font-weight: 700;
+	width: 3vw;
+	height: 3vw;
+	border-radius: 50%;
+	background-color: #0000004b;
+	transition: all 0.3s;
+}
+
+
+
+.image-slider .swiper-button-prev:hover::after ,
+.image-slider .swiper-button-next:hover::after {
+	background-color: #000;
+	border-radius: 50%;
+}
+
+/* Пагинация */
+.image-slider .swiper-pagination {
+    bottom: 20px;
+}
+
+/* Буллеты */
+.image-slider .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+/* ============ Модели ================================================================================= */
+
+
+
+.models__contain {
+	min-height: 100vh;
+	padding-top: 100px;
+}
+
+.models__content {
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.models__content__title {
+	color: #000;
+	font-size: 48px;
+	font-weight: 700;
+}
+
+.models__content__menu {
+	margin-top: 20px;
+	padding: 20px 0;
+}
+
+.models__content__menu > *:not(:last-child) {
+	margin-right: 20px;
+}
+
+.models__menu__link {
+	color: #000 ;
+}
+
+.models__info {
+	flex-direction: column;
+	align-items: center;
+}
+
+.models__info__image {
+	text-align: center;
+	width: 100%;
+	height: 500px;
+}
+
+.models__info__image img{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+	/* margin-top: 10px; */
+	background-color: #fff;
+}
+
+.models__info__content {
+	flex-direction: column;
+	align-items: center;
+}
+
+.models__info__content__title {
+	font-size: 24px;
+	color: #000;
+	font-weight: 600;
+}
+
+.models__info__content__price {
+	color: #000;
+}
+
+.models__info__btn {
+	padding: 10px;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	margin-top: 10px;
+	font-size: 20px;
+	font-weight: 600;
+	transition: all 0.5s;
+}
+
+.models__info__btn:hover{
+	background-color: #00000083;
+	color: #000;
 }
