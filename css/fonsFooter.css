@@ -28,6 +28,7 @@
 .icon-edit:before {
   content: "\e900";
   /* font-size: 24px; */
+
 }
 .icon-pencil1:before {
   content: "\e901";
@@ -41,6 +42,7 @@
 .icon-bin:before {
   content: "\e9ac";
   /* font-size: 24px; */
+
 }
 .icon-bin2:before {
   content: "\e9ad";

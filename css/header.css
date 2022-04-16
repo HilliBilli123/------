@@ -1,14 +1,15 @@
 .header {
 	background-color: black;
 	
-	height: 50px;
+	height: 70px;
 	width: 100%;
-	/* position: fixed; */
+	position: fixed;
 	z-index: 15;
-	/* top: 0; */
+	top: 0;
 }
 
 .header__contein__menu {
 	justify-content: space-around;
-	padding: 20px 0;
+	align-items: center;
+	/* padding: 20px 0; */
 }
