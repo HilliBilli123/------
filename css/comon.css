@@ -12,6 +12,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	color: white;
+	text-decoration: none;
 }
 
 a {
@@ -24,4 +25,9 @@ a {
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
+}
+
+ul[class],
+ol[class] {
+	list-style: none;
 }

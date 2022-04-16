@@ -1,6 +1,7 @@
 @import url("comon.css");
 @import url("header.css");
 @import url("swiper-bundle.min.css");
+@import url("fonsFooter.css");
 
 /* Слайдер */
 .page__body {
@@ -10,7 +11,7 @@
 }
 .slider__contein {
 	position: relative;
-	height: 100%;
+	height: 100vh;
 }
 
 .slider__content {
@@ -27,6 +28,47 @@
 	align-items: flex-end;
 	
 
+}
+
+.menu__link {
+	font-weight: 600;
+	transition: all 1s;
+	position: relative;
+	letter-spacing: 0.5px;
+	text-decoration: none;
+}
+
+
+
+.menu__link::after{
+	content: "";
+	position: absolute;
+	background-color: #fff;
+	height: 3px;
+	width: 0;
+	left: 0;
+	bottom: -10px;
+	transition: 0.3s;
+}
+.menu__link:hover:after {
+		width: 100%;
+	}
+
+.logo__image {
+	max-width: 150px;
+	text-align: center;
+	height: 100%;
+	color: white;
+	padding: 5px;
+	/* background-color: white; */
+	object-fit: cover;
+	/* filter: brightness(0) invert(1); */
+}
+
+.logo__image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .detailed__contant {
@@ -90,91 +132,131 @@
 	border-radius: 50%;
 }
 
-/* Пагинация */
-.image-slider .swiper-pagination {
-    bottom: 20px;
-}
 
-/* Буллеты */
-.image-slider .swiper-pagination-bullet {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    font-size: 14px;
-    background-color: #fff;
-}
 
 /* ============ Модели ================================================================================= */
-
+.models{
+	min-height: 95vh;
+}
 
 
 .models__contain {
-	min-height: 100vh;
-	padding-top: 100px;
+	min-height: 95vh;
+	padding: 50px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 0;
 }
 
 .models__content {
 	flex-direction: column;
 	align-items: center;
-	min-height: 100vh;
+	min-width: 0;
+	/* min-height: 100vh; */
 }
 
 .models__content__title {
 	color: #000;
 	font-size: 48px;
 	font-weight: 700;
+	text-align: center;
+	padding-bottom: 100px;
 }
 
-.models__content__menu {
-	margin-top: 20px;
-	padding: 20px 0;
+.models-slider__wrapper {
+	padding: 75px 0;
 }
 
-.models__content__menu > *:not(:last-child) {
-	margin-right: 20px;
+.models-slider__content {
+	width: 250px;
+	text-align: center;
+	margin: 0 auto;
 }
 
-.models__menu__link {
-	color: #000 ;
-}
-
-.models__info {
-	flex-direction: column;
-	align-items: center;
-}
-
-.models__info__image {
+.models-slider__img {
+	/* position: absolute; */
 	text-align: center;
 	width: 100%;
-	height: 500px;
+	/* height: 250px; */
 }
 
-.models__info__image img{
+.models-slider__img img {
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
 	object-position: center;
-	/* margin-top: 10px; */
-	background-color: #fff;
 }
 
-.models__info__content {
-	flex-direction: column;
-	align-items: center;
+.models-slider__link {
+	transition: all 1s;
 }
-
-.models__info__content__title {
+.models-slider__title {
+	color: #000;
 	font-size: 24px;
-	color: #000;
 	font-weight: 600;
+	transition: all 1s;
+	position: relative;
+	letter-spacing: 0.5px;
+	text-decoration: none;
 }
 
-.models__info__content__price {
-	color: #000;
+.models-slider__title::after{
+	content: "";
+	position: absolute;
+	background-color: #000;
+	height: 3px;
+	width: 0;
+	left: 0;
+	bottom: -10px;
+	transition: 0.3s;
+}
+.models-slider__title:hover:after {
+		width: 100%;
+	}
+	
+/* Стрелки */
+.models-slider .swiper-button-prev::after,
+.models-slider .swiper-button-next::after {
+    color: #fff;
+    font-size: 1.2vw;
+	font-weight: 700;
+	width: 2vw;
+	height: 2vw;
+	border-radius: 50%;
+	background-color: #0000004b;
+	transition: all 0.3s;
 }
 
-.models__info__btn {
-	padding: 10px;
+
+
+.models-slider .swiper-button-prev:hover::after ,
+.models-slider .swiper-button-next:hover::after {
+	background-color: #000;
+	border-radius: 50%;
+}
+
+/* Пагинация */
+.models-slider .swiper-pagination {
+    bottom: 15px;
+}
+
+/* Буллеты */
+.models-slider .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 14px;
+    background-color: #696d70;
+}
+
+.models__buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.models__button {
+	padding: 5px 35px;
 	text-align: center;
 	background-color: #000;
 	color: #fff;
@@ -182,9 +264,147 @@
 	font-size: 20px;
 	font-weight: 600;
 	transition: all 0.5s;
+	letter-spacing: 1px;
 }
 
-.models__info__btn:hover{
-	background-color: #00000083;
+.models__button:hover {
+	text-decoration: underline;
+	letter-spacing: 1px;
+}
+/* ============ О нас  ================================================================================= */
+.about {
+	min-height: 80vh;
+}
+.about__contain {
+	min-height: 80vh;
+}
+.about__title{
 	color: #000;
+	font-size: 48px;
+	font-weight: 700;
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+.about__content {
+	justify-content: center;
+
+}
+
+
+.about__image {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+
+.about__image img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+.about__info {
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: center; */
+}
+
+.about__info__title {
+	color: #000;
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.about__info__text {
+	color: #000;
+	font-size: 24px;
+	padding: 30px;
+}
+
+/* ============ Подвал  ================================================================================= */
+
+._footer-title {
+    font-size: 24px;
+    line-height: 29 / 24 * 100%;
+    color: white;
+    font-weight: 700;
+
+}
+
+.footer {
+    background-color: #050505;
+}
+
+.footer__body {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.footer__main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+
+/*Общи заголовки подвала*/
+._footer-title {
+    margin: 0px 0px 15px 0px;
+}
+
+.footer__contacts__list {
+    display: flex;
+    max-width: 300px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer__socialMedia__list {
+    display: flex;
+    max-width: 400px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/*Контакты*/
+.footer__contacts__list li:not(:last-child) {
+    margin: 0px 0px 15px 0px;
+}
+
+.footer__contacts__link {
+    display: inline-block;
+    color: #fff;
+    transition: color 0.3s ease 0s;
+    line-height: 120%;
+    width: 150px;
+}
+
+/*Социальные сети*/
+.footer__socialMedia__list li:not(:last-child) {
+    margin: 0px 0px 15px 0px;
+}
+
+.footer__socialMedia__link {
+    display: inline-block;
+    color: #fff;
+    transition: color 0.3s ease 0s;
+    line-height: 120%;
+    width: 150px;
+}
+
+.footer__logo {
+    max-width: 170px;
+    background-color: #fff;
+    object-fit: cover;
+}
+
+.footer__logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
