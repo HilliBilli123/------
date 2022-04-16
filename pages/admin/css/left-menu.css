@@ -10,19 +10,30 @@
     overflow-y: auto;
     position: relative;
     overflow-x: hidden;
+    word-break: break-word;
+    word-spacing: 2px;
+    flex: 0 0 auto;
 }
 
-.admin__panel__body{
+.admin__panel__table{
     flex: 1 1 auto;
     color: black;
+    overflow-y: auto;
+    padding: 20px;
+    height: 100%;
 }
 .left__menu__block{
     width: 100%;
     text-align: left;
 }
-.element{
+.admin__panel__body{
+    height: calc(100% - 70px);
+    width: 100%;
+}
+.panel__body__table{
     color: black;
     display: none;
+    
 }
 .element-active{
     display: block;
@@ -34,6 +45,8 @@
     color: black;
     text-align: center;
     position: relative;
+    word-break: break-word;
+    word-spacing: 3px;
 }
 .active{
     width: 90%;

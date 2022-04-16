@@ -1,3 +1,4 @@
+@import url("fonsFooter.css");
 ._contein {
 	max-width: 1280px;
 	margin: 0 auto;
@@ -11,12 +12,13 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	/* color: white; */
+	color: white;
 }
 
 a {
 	text-decoration: none;
 	display: inline-block;
+	/* color: black; */
 }
 
 .img {
