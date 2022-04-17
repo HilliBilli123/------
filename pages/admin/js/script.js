@@ -42,23 +42,30 @@ const editBtn = document.querySelectorAll(".icon-edit")
 editBtn.forEach(element => {
     element.addEventListener("click", (e) => {
         e.preventDefault()
+        const tableName = e.target.closest(".panel__body__table")
         const block = e.target.closest(".body__table__line")
         const childss = block.children
         const childs = Array.from(childss)
         const addBlc = e.target.closest(".table__title")
         console.log(addBlc)
         addBlc.insertAdjacentHTML("beforeEnd", `
-            <form class="form" action="inc/add.php" method="post">
+            <form class="form" action="inc/edit.php" method="post">
                 <div class="from__content__add">
                 </div>
             </form>`)
         const blockAdd = addBlc.querySelector(".from__content__add")
-        blockAdd.insertAdjacentHTML("beforeEnd", `<input name="id" value="${childs[0]}"/>`)
+        blockAdd.insertAdjacentHTML("beforeEnd", `<input name="id" value="${childs[0].innerHTML}"/>`)
+        blockAdd.insertAdjacentHTML("beforeEnd", `<input name="table" value="${tableName.id}"/>`)
         childs.shift()
+        childs.pop()
+        childs.pop()
         childs.forEach(element => {
-            blockAdd.insertAdjacentHTML("beforeEnd",`<input name="item[]" value="${element}"/>`)
+            console.log(element.innerHTML)
+            blockAdd.insertAdjacentHTML("beforeEnd",`<input name="item[]" value="${element.innerHTML}"/>`)
         })
-        
+        blockAdd.insertAdjacentHTML("beforeEnd",`<button class="add__button__block__a" type="submit">Добавить</button>`)
+        const open = addBlc.querySelector(".form")
+        open.style.display="flex"
         console.log(childs)
     })
 })

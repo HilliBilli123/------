@@ -84,7 +84,7 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                     foreach ($breakdowns as $breakdown) {
                     ?>
                         <div class="body__table__line _table-color flex">
-                            <div class="table__title" id="id"><? echo $breakdown["id"] ?></div>
+                            <div class="table__title"><? echo $breakdown["id"] ?></div>
                             <div class="table__title" id="name"><? echo $breakdown["name"] ?></div>
                             <div class="table__title" id="yearRelease"><? echo $breakdown["yearRelease"] ?></div>
                             <div class="table__title" id="new"><? echo $breakdown["new"] ?></div>
