@@ -1,29 +1,35 @@
 /* @import url("../../../css/fonsFooter.css"); */
-.table__title{
+.table__title {
     /* color: #000; */
 }
+
 .body__table__line:nth-child(2n) {
     background-color: white;
     color: black;
 }
-.body__table__line:nth-child(2n) .table__title:not(:last-child){
+
+.body__table__line:nth-child(2n) .table__title:not(:last-child) {
     color: black;
     border-right: 3px solid black;
 }
-.body__table__line:nth-child(2n) .table__title a{
+
+.body__table__line:nth-child(2n) .table__title a {
     color: black;
 }
-.panel__body__table{
+
+.panel__body__table {
     overflow-y: auto;
     border: 3px solid black;
 }
-.body__table__line{
+
+.body__table__line {
     justify-content: space-between;
     background-color: #000;
     color: white;
-    
+
 }
-.table__title{
+
+.table__title {
     width: 100%;
     text-align: center;
     word-break: break-all;
@@ -31,14 +37,16 @@
     padding: 20px 0;
     /* border-left: 3px solid white; */
 }
-.table__title:not(:last-child){
+
+.table__title:not(:last-child) {
     border-right: 3px solid white;
 }
+
 /* .table__title a{
     color: #000;
 } */
 
-.welcome{
+.welcome {
     justify-content: center;
     align-items: center;
     color: #000;
@@ -47,17 +55,19 @@
     height: 100%;
     display: flex;
 }
-.welcome__content{
+
+.welcome__content {
     color: #000;
 }
 
-.add__button__block{
+.add__button__block {
     text-align: right;
     display: none;
     margin-bottom: 10px;
     /* position: relative; */
 }
-.add__button__block a{
+
+.add__button__block__a {
     text-align: center;
     padding: 20px;
     width: 200px;
@@ -66,12 +76,13 @@
     border: 1px solid black;
     transition: .5s all;
 }
-.add__button__block a:hover{
+
+.add__button__block__a:hover {
     color: black;
     background-color: #fff;
 }
 
-.form{
+.form {
     display: none;
     position: absolute;
     width: 100%;
@@ -79,4 +90,37 @@
     background-color: rgba(0, 0, 0, 0.637);
     top: 0;
     right: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.from__content__add {
+    background-color: black;
+    color: #fff;
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    /* text-align: center; */
+}
+
+.from__content__add button {
+    color: black;
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 10px;
+}
+
+.from__content__add button:hover {
+    color: white;
+    background-color: #000;
+    border: 2px solid #fff;
+}
+
+.from__content__add input {
+    width: 200px;
+    margin-bottom: 10px;
 }

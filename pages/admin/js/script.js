@@ -1,6 +1,6 @@
 const links = document.querySelectorAll(".left__menu__link")
 const content = document.querySelectorAll(".panel__body__table")
-const addButton = document.querySelector(".add__button__block__a")
+const addButton = document.querySelector(".add")
 links.forEach(element =>{
     element.addEventListener("click", (e) => {
         e.preventDefault()
@@ -15,25 +15,50 @@ links.forEach(element =>{
                     e.preventDefault()
                     const addButtons = e.target.closest(".add__button__block")
                     const block = addButtons.querySelector(".form")
-                    console.log(el.children)
+                    const blockContent = block.querySelector(".from__content__add")
+                    // console.log(el.children)
                     let childs = el.children
                     let childss = childs[0].children
                     let childss1 = Array.from(childss)
                     childss1.shift()
                     childss1.pop()
                     childss1.pop()
-                    console.log(childss1)
-                    block.insertAdjacentHTML("beforeEnd",`<input name="table" value="${el.id}" style="display:none;"/>`)
+                    // console.log(childss1)
+                    blockContent.innerHTML = ""
+                    blockContent.insertAdjacentHTML("beforeEnd",`<input name="table" value="${el.id}" style="display:none;"/>`)
                     childss1.forEach(element => {
                         console.log(element.innerHTML)
-                        block.append(element.innerHTML)
-                        block.insertAdjacentHTML("beforeEnd",`<input name="item[]"/>`)
-                        block.style.display="block"
+                        blockContent.append(element.innerHTML)
+                        blockContent.insertAdjacentHTML("beforeEnd",`<input name="item[]"/>`)
+                        block.style.display="flex"
                     })
-                    block.insertAdjacentHTML("beforeEnd",`<button type="submit">Добавить</button>`)
+                    blockContent.insertAdjacentHTML("beforeEnd",`<button class="add__button__block__a" type="submit">Добавить</button>`)
                 })
             }
         })
     })
 })
-
+const editBtn = document.querySelectorAll(".icon-edit")
+editBtn.forEach(element => {
+    element.addEventListener("click", (e) => {
+        e.preventDefault()
+        const block = e.target.closest(".body__table__line")
+        const childss = block.children
+        const childs = Array.from(childss)
+        const addBlc = e.target.closest(".table__title")
+        console.log(addBlc)
+        addBlc.insertAdjacentHTML("beforeEnd", `
+            <form class="form" action="inc/add.php" method="post">
+                <div class="from__content__add">
+                </div>
+            </form>`)
+        const blockAdd = addBlc.querySelector(".from__content__add")
+        blockAdd.insertAdjacentHTML("beforeEnd", `<input name="id" value="${childs[0]}"/>`)
+        childs.shift()
+        childs.forEach(element => {
+            blockAdd.insertAdjacentHTML("beforeEnd",`<input name="item[]" value="${element}"/>`)
+        })
+        
+        console.log(childs)
+    })
+})
