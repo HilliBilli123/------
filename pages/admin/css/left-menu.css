@@ -1,5 +1,5 @@
 .admin__left__menu {
-    width: 400px;
+    width: 410px;
     background-color: black;
     text-align: center;
     letter-spacing: 5px;
@@ -13,7 +13,7 @@
     word-break: break-word;
     word-spacing: 2px;
     flex: 0 0 auto;
-    padding: 10px 0;
+    padding: 10px 0px 10px 0px;
 }
 
 .admin__panel__table {
@@ -27,7 +27,7 @@
 .left__menu__block {
     width: 100%;
     text-align: left;
-
+    margin-top: 5px;
 }
 
 .admin__panel__body {
