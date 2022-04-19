@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 16 2022 г., 00:00
+-- Время создания: Апр 17 2022 г., 08:00
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -37,7 +37,7 @@ CREATE TABLE `breakdown` (
 --
 
 INSERT INTO `breakdown` (`id`, `name`) VALUES
-(1, '1212312412414');
+(4, '12313');
 
 -- --------------------------------------------------------
 
@@ -145,6 +145,34 @@ CREATE TABLE `staff` (
   `pasport` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tablename`
+--
+
+CREATE TABLE `tablename` (
+  `id` int(11) NOT NULL,
+  `nameTable` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nameTableKZ` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nameTableRU` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `tablename`
+--
+
+INSERT INTO `tablename` (`id`, `nameTable`, `nameTableKZ`, `nameTableRU`) VALUES
+(1, 'breakdown', 'Зақымдану', NULL),
+(2, 'cars', 'Автомобильдер', NULL),
+(3, 'classes', 'Автомобиль класстары', NULL),
+(4, 'components', 'Компоненттер', NULL),
+(5, 'customers', 'Клиенттер', NULL),
+(6, 'orders', '	Автомобильді төлеу', NULL),
+(7, 'positions', 'Лауазымдар', NULL),
+(8, 'reason', 'Бұзылу себептері', NULL),
+(9, 'staff', 'Қызметкерлер', NULL);
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -183,7 +211,8 @@ ALTER TABLE `customers`
 -- Индексы таблицы `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `staffId` (`staffId`);
 
 --
 -- Индексы таблицы `positions`
@@ -204,6 +233,12 @@ ALTER TABLE `staff`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `tablename`
+--
+ALTER TABLE `tablename`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -211,13 +246,13 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT для таблицы `breakdown`
 --
 ALTER TABLE `breakdown`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `classes`
@@ -260,6 +295,22 @@ ALTER TABLE `reason`
 --
 ALTER TABLE `staff`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `tablename`
+--
+ALTER TABLE `tablename`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`staffId`) REFERENCES `staff` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
