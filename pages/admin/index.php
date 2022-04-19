@@ -164,7 +164,7 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                     }
                     ?>
                 </div>
-                <div class="panel__body__table" id="orders">
+                <div class="panel__body__table" id="ordersv">
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
                         <div class="table__header__title table__title">ФИО</div>
