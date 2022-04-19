@@ -1,0 +1,7 @@
+@import url("../../../css/comon.css");
+@import url("left-menu.css");
+@import url("table.css");
+
+.admin__panel{
+    height: 100vh;
+}
