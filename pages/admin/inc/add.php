@@ -9,7 +9,9 @@ foreach ($items as $item) {
     } else {
         $sring = $item;
     }
+    // return $sring;
 }
+// echo $sring;
 include "../../../inc/connect.php";
 $result = mysqli_query($connect, "INSERT INTO $table VALUES (NULL,$sring)");
 header('Location: ../index.php');

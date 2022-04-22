@@ -54,13 +54,14 @@
     position: relative;
     word-break: break-word;
     word-spacing: 3px;
+    transition: 0.5s all;
 }
 
 .active {
-    width: 90%;
+    transform: translateX(40%);
 }
 
-.active::after {
+/* .active::after {
     border-right: 1px solid black;
     width: 30%;
     height: 50%;
@@ -82,4 +83,4 @@
     right: 0;
     bottom: -10px;
     background: black;
-}
+} */
