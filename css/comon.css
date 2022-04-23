@@ -1,4 +1,5 @@
 @import url("fonsFooter.css");
+
 ._contein {
 	max-width: 1280px;
 	margin: 0 auto;
@@ -30,18 +31,20 @@ a {
 }
 
 
-*::-webkit-scrollbar{
-    width: 10px;
+*::-webkit-scrollbar {
+	width: 10px;
+	
 }
-*::-webkit-scrollbar-track{
-    background: white;
+
+*::-webkit-scrollbar-track {
+	background: white;
 }
+
 *::-webkit-scrollbar-thumb {
-    background-color: black; 
+	background-color: black;
 }
 
 ul[class],
 ol[class] {
 	list-style: none;
 }
-

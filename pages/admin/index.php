@@ -1,7 +1,33 @@
 <?php
 include("../../inc/connect.php");
-$ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
+// Подключаем класс для работы с excel
+require_once('PHPExcel.php');
+// Подключаем класс для вывода данных в формате excel
+require_once('PHPExcel/Writer/Excel5.php');
+$xls = new PHPExcel();
+$xls->setActiveSheetIndex(0);
+$sheet = $xls->getActiveSheet();
+$sheet->setTitle('Отчет по продажам');
+$sheet->setCellValue("A1", 'Имя человека');
+// header("Expires: Mon, 1 Apr 1974 05:00:00 GMT");
+// header("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
+// header("Cache-Control: no-cache, must-revalidate");
+// header("Pragma: no-cache");
+// header("Content-type: application/vnd.ms-excel");
+// header("Content-Disposition: attachment; filename=matrix.xls");
 
+// Выводим содержимое файла
+$objWriter = new PHPExcel_Writer_Excel5($xls);
+$objWriter->save('classes/index.xls');
+
+$tableNames = mysqli_query($connect, "SELECT * FROM `tablename`");
+$classes = mysqli_query($connect, "SELECT * FROM `classes`");
+$cars = mysqli_query($connect, "SELECT * FROM `cars`");
+$staff = mysqli_query($connect, "SELECT * FROM `staff`");
+$customers = mysqli_query($connect, "SELECT * FROM `customers`");
+$components = mysqli_query($connect, "SELECT * FROM `components`");
+$positions = mysqli_query($connect, "SELECT * FROM `positions`");
+$reason = mysqli_query($connect, "SELECT * FROM `reason`");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,15 +45,10 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
         <div class="admin__left__menu flex">
             <?php
             $i = 1;
-            foreach ($ressult as $product) {
-                $prp = $product['Tables_in_di-driver'];
-                $tableName = mysqli_query($connect, "SELECT * FROM `tablename` WHERE `nameTable` = '{$prp}'");
-                $tableName = mysqli_fetch_assoc($tableName);
-                if ($tableName["nameTable"] == $prp) {
+            foreach ($tableNames as $tableName) {
             ?>
-                    <div class="left__menu__block"><a href="" class="left__menu__link" id="<? echo $prp ?>"><? echo $tableName["nameTableKZ"] ?></a></div>
+                <div class="left__menu__block"><a href="" class="left__menu__link" id="<? echo $tableName["nameTable"] ?>"><? echo $tableName["nameTableKZ"] ?></a></div>
             <?php
-                }
                 $i++;
             }
             ?>
@@ -76,6 +97,8 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                         <div class="table__header__title table__title">Наименование</div>
                         <div class="table__header__title table__title">Год выпуска</div>
                         <div class="table__header__title table__title">Новый?</div>
+                        <div class="table__header__title table__title">Класс</div>
+                        <div class="table__header__title table__title">Стоймость</div>
                         <div class="table__header__title table__title">Редактировать</div>
                         <div class="table__header__title table__title">Удалить</div>
                     </div>
@@ -88,6 +111,16 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                             <div class="table__title" id="name"><? echo $breakdown["name"] ?></div>
                             <div class="table__title" id="yearRelease"><? echo $breakdown["yearRelease"] ?></div>
                             <div class="table__title" id="new"><? echo $breakdown["new"] ?></div>
+                            <?
+                            foreach ($classes as $classe) {
+                                if ($breakdown["classId"] == $classe['id']) {
+                            ?>
+                                    <div class="table__title" id="new"><? echo $classe["name"] ?></div>
+                                    <div class="table__title" id="new"><? echo $breakdown["price"] + $classe["price"] ?></div>
+                            <?
+                                }
+                            }
+                            ?>
                             <div class="table__title"><a href="" class="icon-edit"></a></div>
                             <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=cars" class="icon-bin"></a></div>
                         </div>
@@ -99,6 +132,7 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
                         <div class="table__header__title table__title">Наименование</div>
+                        <div class="table__header__title table__title">Цена</div>
                         <div class="table__header__title table__title">Редактировать</div>
                         <div class="table__header__title table__title">Удалить</div>
                     </div>
@@ -109,6 +143,7 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                         <div class="body__table__line _table-color flex">
                             <div class="table__title"><? echo $breakdown["id"] ?></div>
                             <div class="table__title"><? echo $breakdown["name"] ?></div>
+                            <div class="table__title"><? echo $breakdown["price"] ?></div>
                             <div class="table__title"><a href="" class="icon-edit"></a></div>
                             <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=classes" class="icon-bin"></a></div>
                         </div>
@@ -120,6 +155,7 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
                         <div class="table__header__title table__title">Наименование</div>
+                        <div class="table__header__title table__title">Цена</div>
                         <div class="table__header__title table__title">Редактировать</div>
                         <div class="table__header__title table__title">Удалить</div>
                     </div>
@@ -130,6 +166,7 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                         <div class="body__table__line _table-color flex">
                             <div class="table__title"><? echo $breakdown["id"] ?></div>
                             <div class="table__title"><? echo $breakdown["name"] ?></div>
+                            <div class="table__title"><? echo $breakdown["price"] ?></div>
                             <div class="table__title"><a href="" class="icon-edit"></a></div>
                             <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=components" class="icon-bin"></a></div>
                         </div>
@@ -164,15 +201,17 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                     }
                     ?>
                 </div>
-                <div class="panel__body__table" id="ordersv">
+                <div class="panel__body__table" id="orders">
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
-                        <div class="table__header__title table__title">ФИО</div>
-                        <div class="table__header__title table__title">Паспорт</div>
-                        <div class="table__header__title table__title">Адрес</div>
-                        <div class="table__header__title table__title">Телефон</div>
+                        <div class="table__header__title table__title">Клиент</div>
+                        <div class="table__header__title table__title">Машина</div>
+                        <div class="table__header__title table__title">Класс</div>
+                        <div class="table__header__title table__title">Компоненты</div>
+                        <div class="table__header__title table__title">Цена</div>
+                        <div class="table__header__title table__title">Дата продажи</div>
+                        <div class="table__header__title table__title">Продовец</div>
                         <div class="table__header__title table__title">Редактировать</div>
-                        <div class="table__header__title table__title">Удалить</div>
                     </div>
                     <?php
                     $breakdowns = mysqli_query($connect, "SELECT * FROM `orders`");
@@ -180,12 +219,46 @@ $ressult = mysqli_query($connect, "SHOW TABLES FROM `di-driver`");
                     ?>
                         <div class="body__table__line _table-color flex">
                             <div class="table__title"><? echo $breakdown["id"] ?></div>
-                            <div class="table__title"><? echo $breakdown["name"] ?></div>
-                            <div class="table__title"><? echo $breakdown["pasport"] ?></div>
-                            <div class="table__title"><? echo $breakdown["addres"] ?></div>
-                            <div class="table__title"><? echo $breakdown["phone"] ?></div>
+                            <?
+                            foreach ($customers as $customer) {
+                                if ($customer["id"] == $breakdown["clientId"]) {
+                            ?>
+                                    <div class="table__title"><? echo $customer["name"] ?></div>
+                            <?
+                                }
+                            }
+                            ?>
+                            <?
+                            foreach ($cars as $car) {
+                                if ($car["id"] == $breakdown["carId"]) {
+                            ?>
+                                    <div class="table__title"><? echo $car["name"] ?></div>
+                            <?
+                                }
+                            }
+                            ?>
+                            <?
+                            foreach ($classes as $classess) {
+                                if ($classess["id"] == $breakdown["clasessesId"]) {
+                            ?>
+                                    <div class="table__title"><? echo $classess["name"] ?></div>
+                            <?
+                                }
+                            }
+                            ?>
+                            <div class="table__title"><? echo $breakdown["components"] ?></div>
+                            <div class="table__title"><? echo $breakdown["price"] ?></div>
+                            <div class="table__title"><? echo $breakdown["date"] ?></div>
+                            <?
+                            foreach ($staff as $staffs) {
+                                if ($staffs["id"] == $breakdown["staffId"]) {
+                            ?>
+                                    <div class="table__title"><? echo $staffs["name"] ?></div>
+                            <?
+                                }
+                            }
+                            ?>
                             <div class="table__title"><a href="" class="icon-edit"></a></div>
-                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=orders" class="icon-bin"></a></div>
                         </div>
                     <?php
                     }

@@ -69,3 +69,11 @@ editBtn.forEach(element => {
         console.log(childs)
     })
 })
+windows = document.querySelectorAll(".form")
+windows.forEach(element =>{
+    element.addEventListener("click", (e) =>{
+        if(e.target.style.display === "flex"){
+            e.target.style.display = "none"
+        }
+    })
+})
