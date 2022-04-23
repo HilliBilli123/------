@@ -118,28 +118,73 @@
 						<!-- Пагинация -->
 						<div class="swiper-pagination"></div>
 					</div>
-					<div class="models__buttons">
+					<!-- <div class="models__buttons">
 						<a href="" class="models__button">Все модели</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</section>
 		<section class="about">
 			<div class="about__contain _contein">
-				<div class="about__title">О нас</div>
-				<div class="about__content flex">
-					<div class="about__image">
-						<img class="img" src="resurses/Sorento9.jpg" alt="">
+				<!-- <div class="about__title">О нас</div> -->
+				<div class="about__menu">
+					<div class="about__menu__links about__menu__active" id="company">Di-driver</div>
+					<div class="about__menu__links" id="benefits">Преимущества</div>
+					<div class="about__menu__links" id="history">История</div>
+				</div>
+				<div class="about__block about__active" id="company">
+					<div class="about__block__title">
+						Di-driver сегодня
 					</div>
-					<div class="about__info flex">
-						<div class="about__info__title">
-							Компания драйвер
+					<div class="about__content">
+						<div class="about__info">
+							<div class="about__info__text">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim accusamus ducimus sint accusantium
+								saepe porro fuga adipisci esse
+								a! Quaerat necessitatibus veritatis molestias voluptates obcaecati asperiores aperiam. Incidunt,
+								nostrum minima?
+							</div>
+							<div class="about__image">
+								<img class="img" src="resurses/fon3.jpg" alt="">
+							</div>
 						</div>
-						<div class="about__info__text">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim accusamus ducimus sint accusantium
-							saepe porro fuga adipisci esse
-							a! Quaerat necessitatibus veritatis molestias voluptates obcaecati asperiores aperiam. Incidunt,
-							nostrum minima?
+					</div>
+				</div>
+				<div class="about__block" id="benefits">
+					<!-- <div class="about__block__title">
+						Наши преимущества
+					</div> -->
+					<div class="about__content flex">
+						<div class="about__info">
+							<ul class="list__benefits">
+								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+							</ul>
+						</div>		
+						<div class="about__info">
+							<ul class="list__benefits">
+								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="about__block" id="history">
+					<div class="about__content">
+						<div class="about__info">
+							<div class="about__info__text">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim accusamus ducimus sint accusantium
+								saepe porro fuga adipisci esse
+								a! Quaerat necessitatibus veritatis molestias voluptates obcaecati asperiores aperiam. Incidunt,
+								nostrum minima?
+							</div>
+							<div class="about__image__history">
+								<img class="img" src="resurses/fon4.jpg" alt="">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -149,50 +194,111 @@
 			<div class="order__contein _contein">
 				<div class="order__content">
 					<div class="order__title">
-						Заказать
+						Заказать услугу
 					</div>
 					<form action="../inc/productEdit.php" enctype="multipart/form-data" method="post" class="popap__form">
-						<div class="order__selected__block">
-							<div class="selected__title">
-								Двигатель
-							</div>
-							<select name="" id="" class="selected__popap">
-								<option value="type">Мощный</option>
-							</select>
-						</div>	
-						<div class="order__selected__block">	
-							<div class="selected__title">
-								Двигатель
-							</div>
-							<select name="" id="" class="selected__popap">
-								<option value="type">Мощный</option>
-							</select>
-						</div>	
-						<div class="order__selected__block">	
-							<div class="selected__title">
-								Двигатель
-							</div>
-							<select name="" id="" class="selected__popap">
-								<option value="type">Мощный</option>
-							</select>
-						</div>	
-						<div class="order__selected__block">	
-							<div class="selected__title">
-								Двигатель
-							</div>
-							<select name="" id="" class="selected__popap">
-								<option value="type">Мощный</option>
-							</select>
-						</div>	
-						<div class="order__selected__block">	
-							<div class="selected__title">
-								Двигатель
-							</div>
-							<select name="" id="" class="selected__popap">
-								<option value="type">Мощный</option>
-							</select>
-						</div>	
+						<div class="order__menu">
+							<div class="order__menu__links menu__links__active" id="order">Купить</div>
+							<div class="order__menu__links" id="repair">Ремонт</div>
+							<div class="order__menu__links" id="testDrive">Тест драйв</div>
 						</div>
+						<div class="order__block _active" id="order">
+							<div class="order__block__title">Заказать автомобиль</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									Автомобиль
+								</div>
+								<select name="" id="" class="selected__popap">
+									<option value="type">Мощный</option>
+								</select>
+							</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									Год выпуска
+								</div>
+								<input name="name" type="text" class="popap__lable">
+							</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									Комплектация
+								</div>
+								<select name="" id="" class="selected__popap">
+									<option value="type">Мощный</option>
+								</select>
+							</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									Цвет
+								</div>
+								<select name="" id="" class="selected__popap">
+									<option value="type">Мощный</option>
+								</select>
+							</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									Класс автомобиля
+								</div>
+								<select name="" id="" class="selected__popap">
+									<option value="type">Мощный</option>
+								</select>
+							</div>
+							<div class="button__orders__form">
+								<button type="submit">Заказать</button>
+							</div>
+						</div>
+						<div class="order__block" id="repair">
+							<div class="order__block__title">Заказать ремонт</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									ФИО клиента
+								</div>
+								<input name="name" type="text" class="popap__lable">
+							</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									ФИО Механика
+								</div>
+								<input name="name" type="text" class="popap__lable">
+							</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									Причина поломки
+								</div>
+								<select name="" id="" class="selected__popap">
+									<option value="type">Мощный</option>
+								</select>
+							</div>
+							<div class="button__orders__form">
+								<button type="submit">Заказать</button>
+							</div>
+						</div>	
+						<div class="order__block" id="testDrive">
+							<div class="order__block__title">Заказать Тест-драйв</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									ФИО клиента
+								</div>
+								<input name="name" type="text" class="popap__lable">
+							</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									Паспорт клиента
+								</div>
+								<input name="name" type="text" class="popap__lable">
+							</div>
+							<div class="order__selected__block">
+								<div class="selected__title">
+									Автомобиль
+								</div>
+								<select name="" id="" class="selected__popap">
+									<option value="type">Мощный</option>
+								</select>
+							</div>
+							<div class="button__orders__form">
+								<button type="submit">Заказать</button>
+							</div>
+						</div>
+						
 					</form>
 				</div>
 			</div>

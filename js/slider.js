@@ -72,10 +72,10 @@ new Swiper('.models-slider',{
     // Курсор перетаскиване
     // grabCursor: true,
     // Количество слайдов
-    slidesPerView: 3,
+    slidesPerView: 2,
     loop: true,
     autoHeight:true,
-    loopedSlides: 3,
+    loopedSlides: 2,
     // spaceBetween: 30,
 
     
