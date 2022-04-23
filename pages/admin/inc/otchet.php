@@ -9,7 +9,7 @@
     $sheet->setTitle('Отчет по продажам');
     $title = $_POST["title"];
     $items = $_POST["items1"];
-    $word = new COM("word.application");
+    // $word = new COM("word.application");
     $i = 0;
     foreach($title as $titles){
         $sheet->setCellValueByColumnAndRow($i,1,"$titles");
@@ -38,4 +38,3 @@
     // Выводим содержимое файла
     $objWriter = new PHPExcel_Writer_Excel5($xls);
     $objWriter->save('php://output');
-?>

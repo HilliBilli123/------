@@ -1,6 +1,6 @@
 const buttonOtchet = document.querySelector(".print")
 const block = document.querySelector(".otchet")
-const contsnt = document.querySelectorAll("#breakdown")[1]
+const contsnt = document.querySelectorAll("#orders")[1]
 buttonOtchet.addEventListener("click", (e) =>{
     e.preventDefault()
     const header = contsnt.querySelectorAll(".table__header__title")
@@ -8,7 +8,7 @@ buttonOtchet.addEventListener("click", (e) =>{
     // const linksArr = Array.from(links) 
     const headerArr = Array.from(header)
     headerArr.pop()
-    headerArr.pop()
+    // headerArr.pop()
     // linksArr.pop()
     // linksArr.pop()
     console.log(headerArr)
@@ -20,7 +20,7 @@ buttonOtchet.addEventListener("click", (e) =>{
         const item = elements.querySelectorAll(".table__title")
         const items = Array.from(item)
         items.pop()
-        items.pop()
+        // items.pop()
         items.forEach(e =>{
             block.insertAdjacentHTML("beforeend",`<input name="items${i}[]" value="${e.innerHTML}" />`)     
         })

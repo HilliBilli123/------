@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 17 2022 г., 08:00
+-- Время создания: Апр 23 2022 г., 21:49
 -- Версия сервера: 10.3.22-MariaDB
--- Версия PHP: 7.1.33
+-- Версия PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,15 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `breakdown` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `breakdown`
---
-
-INSERT INTO `breakdown` (`id`, `name`) VALUES
-(4, '12313');
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Поломки';
 
 -- --------------------------------------------------------
 
@@ -47,10 +40,19 @@ INSERT INTO `breakdown` (`id`, `name`) VALUES
 
 CREATE TABLE `cars` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `yearRelease` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `new` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `yearRelease` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `new` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `classId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Машины';
+
+--
+-- Дамп данных таблицы `cars`
+--
+
+INSERT INTO `cars` (`id`, `name`, `yearRelease`, `new`, `classId`, `price`) VALUES
+(1, '123123', '123123', '1', '1', '123123');
 
 -- --------------------------------------------------------
 
@@ -60,8 +62,16 @@ CREATE TABLE `cars` (
 
 CREATE TABLE `classes` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` float DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Класс машины';
+
+--
+-- Дамп данных таблицы `classes`
+--
+
+INSERT INTO `classes` (`id`, `name`, `price`) VALUES
+(1, 'Комфорт', 1000);
 
 -- --------------------------------------------------------
 
@@ -71,8 +81,16 @@ CREATE TABLE `classes` (
 
 CREATE TABLE `components` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Компоненты';
+
+--
+-- Дамп данных таблицы `components`
+--
+
+INSERT INTO `components` (`id`, `name`, `price`) VALUES
+(1, 'Магнитола', 2000);
 
 -- --------------------------------------------------------
 
@@ -82,11 +100,18 @@ CREATE TABLE `components` (
 
 CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pasport` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `addres` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pasport` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `addres` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Покупатель ';
+
+--
+-- Дамп данных таблицы `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `pasport`, `addres`, `phone`) VALUES
+(1, 'Баскетболов Баскетбол Баскеболович', '123123', 'Адресс', '87000000');
 
 -- --------------------------------------------------------
 
@@ -96,18 +121,22 @@ CREATE TABLE `customers` (
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `carId` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pasport` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `staffId` int(11) NOT NULL,
-  `componentsId` int(11) NOT NULL,
-  `color` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `clasessesId` int(11) NOT NULL,
-  `customersId` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reason` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `clientId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `carId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `clasessesId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `components` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `staffId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Продажа';
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `clientId`, `carId`, `clasessesId`, `components`, `price`, `date`, `staffId`) VALUES
+(1, '1', '1', '1', '20.02.2022', '1', '1', '1'),
+(4, '1', '1', '1', 'Компонет', 'цена', 'дата продажи', '1');
 
 -- --------------------------------------------------------
 
@@ -117,8 +146,8 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `positions` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Должности';
 
 -- --------------------------------------------------------
 
@@ -128,8 +157,8 @@ CREATE TABLE `positions` (
 
 CREATE TABLE `reason` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Причина поломки';
 
 -- --------------------------------------------------------
 
@@ -139,11 +168,19 @@ CREATE TABLE `reason` (
 
 CREATE TABLE `staff` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `addres` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pasport` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `addres` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pasport` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `postionId` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Работник';
+
+--
+-- Дамп данных таблицы `staff`
+--
+
+INSERT INTO `staff` (`id`, `name`, `addres`, `phone`, `pasport`, `postionId`) VALUES
+(1, 'Стажор', '123123', '123123', '123123', NULL);
 
 -- --------------------------------------------------------
 
@@ -163,8 +200,8 @@ CREATE TABLE `tablename` (
 --
 
 INSERT INTO `tablename` (`id`, `nameTable`, `nameTableKZ`, `nameTableRU`) VALUES
-(1, 'breakdown', 'Зақымдану', NULL),
-(2, 'cars', 'Автомобильдер', NULL),
+(1, 'cars', 'Автомобильдер', NULL),
+(2, 'breakdown', 'Закымдану', NULL),
 (3, 'classes', 'Автомобиль класстары', NULL),
 (4, 'components', 'Компоненттер', NULL),
 (5, 'customers', 'Клиенттер', NULL),
@@ -211,8 +248,7 @@ ALTER TABLE `customers`
 -- Индексы таблицы `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `staffId` (`staffId`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `positions`
@@ -246,43 +282,43 @@ ALTER TABLE `tablename`
 -- AUTO_INCREMENT для таблицы `breakdown`
 --
 ALTER TABLE `breakdown`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `components`
 --
 ALTER TABLE `components`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `reason`
@@ -294,23 +330,13 @@ ALTER TABLE `reason`
 -- AUTO_INCREMENT для таблицы `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `tablename`
 --
 ALTER TABLE `tablename`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- Ограничения внешнего ключа сохраненных таблиц
---
-
---
--- Ограничения внешнего ключа таблицы `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`staffId`) REFERENCES `staff` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
