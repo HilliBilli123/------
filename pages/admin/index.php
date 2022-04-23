@@ -1,25 +1,5 @@
 <?php
 include("../../inc/connect.php");
-// Подключаем класс для работы с excel
-require_once('PHPExcel.php');
-// Подключаем класс для вывода данных в формате excel
-require_once('PHPExcel/Writer/Excel5.php');
-$xls = new PHPExcel();
-$xls->setActiveSheetIndex(0);
-$sheet = $xls->getActiveSheet();
-$sheet->setTitle('Отчет по продажам');
-$sheet->setCellValue("A1", 'Имя человека');
-// header("Expires: Mon, 1 Apr 1974 05:00:00 GMT");
-// header("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
-// header("Cache-Control: no-cache, must-revalidate");
-// header("Pragma: no-cache");
-// header("Content-type: application/vnd.ms-excel");
-// header("Content-Disposition: attachment; filename=matrix.xls");
-
-// Выводим содержимое файла
-$objWriter = new PHPExcel_Writer_Excel5($xls);
-$objWriter->save('classes/index.xls');
-
 $tableNames = mysqli_query($connect, "SELECT * FROM `tablename`");
 $classes = mysqli_query($connect, "SELECT * FROM `classes`");
 $cars = mysqli_query($connect, "SELECT * FROM `cars`");
@@ -58,6 +38,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
             <div class="add__button__block">
                 <a class="add__button__block__a" href="../../index.html">На главную</a>
                 <a class="add__button__block__a add" href="">Добавить</a>
+                <a class="add__button__block__a print" href="">Отчет</a>
                 <form class="form" action="inc/add.php" method="post">
                     <div class="from__content__add">
 
@@ -336,7 +317,13 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
             </div>
         </div>
     </div>
+    <form action="inc/otchet.php" style="display: none;" method="post">
+    <div class="otchet" style="display: none;">
+
+    </div>
+    </form>
     <script src="js/script.js"></script>
+    <script src="js/otchet.js"></script>
 </body>
 
 </html>
