@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 23 2022 г., 21:49
+-- Время создания: Апр 24 2022 г., 07:14
 -- Версия сервера: 10.3.22-MariaDB
--- Версия PHP: 7.4.5
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -149,6 +149,16 @@ CREATE TABLE `positions` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Должности';
 
+--
+-- Дамп данных таблицы `positions`
+--
+
+INSERT INTO `positions` (`id`, `name`) VALUES
+(2, 'Продавец'),
+(3, 'Механик'),
+(4, 'Бухгалтер'),
+(5, 'Тест-драйв');
+
 -- --------------------------------------------------------
 
 --
@@ -172,15 +182,17 @@ CREATE TABLE `staff` (
   `addres` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `pasport` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `postionId` int(11) DEFAULT NULL
+  `postionId` int(11) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `passowrd` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Работник';
 
 --
 -- Дамп данных таблицы `staff`
 --
 
-INSERT INTO `staff` (`id`, `name`, `addres`, `phone`, `pasport`, `postionId`) VALUES
-(1, 'Стажор', '123123', '123123', '123123', NULL);
+INSERT INTO `staff` (`id`, `name`, `addres`, `phone`, `pasport`, `postionId`, `email`, `passowrd`) VALUES
+(1, 'Стажор', '123123', '123123', '123123', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -318,7 +330,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблицы `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `reason`

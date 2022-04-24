@@ -55,8 +55,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
                         <div class="table__header__title table__title">Название</div>
-                        <div class="table__header__title table__title">Редактировать</div>
-                        <div class="table__header__title table__title">Удалить</div>
+                        
                     </div>
                     <?php
                     $breakdowns = mysqli_query($connect, "SELECT * FROM `breakdown`");
@@ -65,8 +64,6 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                         <div class="body__table__line _table-color flex">
                             <div class="table__title" id="id"><? echo $breakdown["id"] ?></div>
                             <div class="table__title" id="name"><? echo $breakdown["name"] ?></div>
-                            <div class="table__title"><a href="" class="icon-edit"></a></div>
-                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=breakdown" class="icon-bin"></a></div>
                         </div>
                     <?php
                     }
@@ -80,8 +77,8 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                         <div class="table__header__title table__title">Новый?</div>
                         <div class="table__header__title table__title">Класс</div>
                         <div class="table__header__title table__title">Стоймость</div>
-                        <div class="table__header__title table__title">Редактировать</div>
-                        <div class="table__header__title table__title">Удалить</div>
+                        
+                        
                     </div>
                     <?php
                     $breakdowns = mysqli_query($connect, "SELECT * FROM `cars`");
@@ -102,8 +99,6 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                                 }
                             }
                             ?>
-                            <div class="table__title"><a href="" class="icon-edit"></a></div>
-                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=cars" class="icon-bin"></a></div>
                         </div>
                     <?php
                     }
@@ -114,8 +109,8 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                         <div class="table__header__title table__title">Код</div>
                         <div class="table__header__title table__title">Наименование</div>
                         <div class="table__header__title table__title">Цена</div>
-                        <div class="table__header__title table__title">Редактировать</div>
-                        <div class="table__header__title table__title">Удалить</div>
+                        
+                        
                     </div>
                     <?php
                     $breakdowns = mysqli_query($connect, "SELECT * FROM `classes`");
@@ -125,8 +120,6 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                             <div class="table__title"><? echo $breakdown["id"] ?></div>
                             <div class="table__title"><? echo $breakdown["name"] ?></div>
                             <div class="table__title"><? echo $breakdown["price"] ?></div>
-                            <div class="table__title"><a href="" class="icon-edit"></a></div>
-                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=classes" class="icon-bin"></a></div>
                         </div>
                     <?php
                     }
@@ -136,9 +129,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
                         <div class="table__header__title table__title">Наименование</div>
-                        <div class="table__header__title table__title">Цена</div>
-                        <div class="table__header__title table__title">Редактировать</div>
-                        <div class="table__header__title table__title">Удалить</div>
+                        <div class="table__header__title table__title">Цена</div>                   
                     </div>
                     <?php
                     $breakdowns = mysqli_query($connect, "SELECT * FROM `components`");
@@ -147,9 +138,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                         <div class="body__table__line _table-color flex">
                             <div class="table__title"><? echo $breakdown["id"] ?></div>
                             <div class="table__title"><? echo $breakdown["name"] ?></div>
-                            <div class="table__title"><? echo $breakdown["price"] ?></div>
-                            <div class="table__title"><a href="" class="icon-edit"></a></div>
-                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=components" class="icon-bin"></a></div>
+                            <div class="table__title"><? echo $breakdown["price"] ?></div>         
                         </div>
                     <?php
                     }
@@ -161,9 +150,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                         <div class="table__header__title table__title">ФИО</div>
                         <div class="table__header__title table__title">Паспорт</div>
                         <div class="table__header__title table__title">Адрес</div>
-                        <div class="table__header__title table__title">Телефон</div>
-                        <div class="table__header__title table__title">Редактировать</div>
-                        <div class="table__header__title table__title">Удалить</div>
+                        <div class="table__header__title table__title">Телефон</div>                   
                     </div>
                     <?php
                     $breakdowns = mysqli_query($connect, "SELECT * FROM `customers`");
@@ -175,8 +162,6 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                             <div class="table__title"><? echo $breakdown["pasport"] ?></div>
                             <div class="table__title"><? echo $breakdown["addres"] ?></div>
                             <div class="table__title"><? echo $breakdown["phone"] ?></div>
-                            <div class="table__title"><a href="" class="icon-edit"></a></div>
-                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=customers" class="icon-bin"></a></div>
                         </div>
                     <?php
                     }
@@ -239,7 +224,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                                 }
                             }
                             ?>
-                            <div class="table__title"><a href="" class="icon-edit"></a></div>
+                            <div class="table__title">Посмотреть</div>
                         </div>
                     <?php
                     }
@@ -248,9 +233,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                 <div class="panel__body__table" id="positions">
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
-                        <div class="table__header__title table__title">Наименование</div>
-                        <div class="table__header__title table__title">Редактировать</div>
-                        <div class="table__header__title table__title">Удалить</div>
+                        <div class="table__header__title table__title">Наименование</div>                    
                     </div>
                     <?php
                     $breakdowns = mysqli_query($connect, "SELECT * FROM `positions`");
@@ -259,8 +242,6 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                         <div class="body__table__line _table-color flex">
                             <div class="table__title"><? echo $breakdown["id"] ?></div>
                             <div class="table__title"><? echo $breakdown["name"] ?></div>
-                            <div class="table__title"><a href="" class="icon-edit"></a></div>
-                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=positions" class="icon-bin"></a></div>
                         </div>
                     <?php
                     }
@@ -269,9 +250,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                 <div class="panel__body__table" id="reason">
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
-                        <div class="table__header__title table__title">Наименование</div>
-                        <div class="table__header__title table__title">Редактировать</div>
-                        <div class="table__header__title table__title">Удалить</div>
+                        <div class="table__header__title table__title">Наименование</div> 
                     </div>
                     <?php
                     $breakdowns = mysqli_query($connect, "SELECT * FROM `reason`");
@@ -280,8 +259,6 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                         <div class="body__table__line _table-color flex">
                             <div class="table__title"><? echo $breakdown["id"] ?></div>
                             <div class="table__title"><? echo $breakdown["name"] ?></div>
-                            <div class="table__title"><a href="" class="icon-edit"></a></div>
-                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=reason" class="icon-bin"></a></div>
                         </div>
                     <?php
                     }
@@ -294,8 +271,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                         <div class="table__header__title table__title">Паспорт</div>
                         <div class="table__header__title table__title">Адрес</div>
                         <div class="table__header__title table__title">Телефон</div>
-                        <div class="table__header__title table__title">Редактировать</div>
-                        <div class="table__header__title table__title">Удалить</div>
+                        <div class="table__header__title table__title">Должность</div>
                     </div>
                     <?php
                     $breakdowns = mysqli_query($connect, "SELECT * FROM `staff`");
@@ -307,8 +283,15 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                             <div class="table__title"><? echo $breakdown["pasport"] ?></div>
                             <div class="table__title"><? echo $breakdown["addres"] ?></div>
                             <div class="table__title"><? echo $breakdown["phone"] ?></div>
-                            <div class="table__title"><a href="" class="icon-edit"></a></div>
-                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=staff" class="icon-bin"></a></div>
+                            <?
+                            foreach($positions as $position){
+                                if($breakdown["postionId"] == $position["id"]){
+                            ?>
+                            <div class="table__title"><? echo $position["name"] ?></div>
+                            <?  
+                            }
+                            }
+                            ?>
                         </div>
                     <?php
                     }
