@@ -21,8 +21,8 @@ links.forEach(element =>{
                     let childss = childs[0].children
                     let childss1 = Array.from(childss)
                     childss1.shift()
-                    childss1.pop()
-                    childss1.pop()
+                    // childss1.pop()
+                    // childss1.pop()
                     // console.log(childss1)
                     blockContent.innerHTML = ""
                     blockContent.insertAdjacentHTML("beforeEnd",`<input name="table" value="${el.id}" style="display:none;"/>`)
@@ -57,8 +57,8 @@ editBtn.forEach(element => {
         blockAdd.insertAdjacentHTML("beforeEnd", `<input name="id" value="${childs[0].innerHTML}"/>`)
         blockAdd.insertAdjacentHTML("beforeEnd", `<input name="table" value="${tableName.id}"/>`)
         childs.shift()
-        childs.pop()
-        childs.pop()
+        // childs.pop()
+        // childs.pop()
         childs.forEach(element => {
             console.log(element.innerHTML)
             blockAdd.insertAdjacentHTML("beforeEnd",`<input name="item[]" value="${element.innerHTML}"/>`)
@@ -77,3 +77,17 @@ windows.forEach(element =>{
         }
     })
 })
+
+window.onload = function() {
+    const visibilitis = document.querySelectorAll(".left__menu__block")
+    const work = document.querySelector("#work")
+    console.log(work.innerHTML)
+    if(work.innerHTML === "Продавец"){
+        document.querySelector(".admin__left__menu").style.display="none"
+        document.querySelector(".welcome").style.display="none"
+        document.querySelectorAll("#orders")[1].style.display="block"
+        const add = document.querySelector(".add__button__block")
+        add.style.display="block"
+        add.querySelector(".add").style.display="none"       
+    }
+}

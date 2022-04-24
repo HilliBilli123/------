@@ -1,4 +1,6 @@
 <?php
+// session_start();
+// $positionId = $_SESSION["user"]["positionId"];
 include("../../inc/connect.php");
 $tableNames = mysqli_query($connect, "SELECT * FROM `tablename`");
 $classes = mysqli_query($connect, "SELECT * FROM `classes`");
@@ -8,6 +10,11 @@ $customers = mysqli_query($connect, "SELECT * FROM `customers`");
 $components = mysqli_query($connect, "SELECT * FROM `components`");
 $positions = mysqli_query($connect, "SELECT * FROM `positions`");
 $reason = mysqli_query($connect, "SELECT * FROM `reason`");
+foreach($positions as $position){
+    if($position["id"] == $positionId){
+    $work = $position["name"];
+}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +40,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
             }
             ?>
         </div>
-
+        <div style="display: none;" id="work"><?echo $work?></div>
         <div class="admin__panel__table">
             <div class="add__button__block">
                 <a class="add__button__block__a" href="../../index.html">На главную</a>
@@ -224,7 +231,7 @@ $reason = mysqli_query($connect, "SELECT * FROM `reason`");
                                 }
                             }
                             ?>
-                            <div class="table__title">Посмотреть</div>
+                            <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=orders" class="icon-bin"></a></div>
                         </div>
                     <?php
                     }
