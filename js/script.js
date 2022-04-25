@@ -43,16 +43,20 @@ aboutBtn.forEach(element => {
 })
 const year = document.querySelector("option:checked")
 
-const gode = document.querySelector("#gode")
-console.log(year.className)
-gode.value = year.className
+const gode = document.querySelectorAll("#gode")
+gode.forEach(el => {
+    el.value = year.className
+})
+
 const select = document.querySelectorAll("select")
 select.forEach(element =>{
     element.addEventListener("change",(e) =>{
         const year = document.querySelector("option:checked")
-
-        const gode = document.querySelector("#gode")
-        console.log(year.className)
-        gode.value = year.className
+        const gode = document.querySelectorAll("#gode")
+        gode.forEach(el => {
+            console.log(year.className)
+            el.value = year.className
+        })
+       
     })
 })

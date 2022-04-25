@@ -13,7 +13,7 @@
     border-right: 3px solid black;
 }
 
-.body__table__line:nth-child(2n) .table__title{
+.body__table__line:nth-child(2n) .table__title a{
     color: black;
 }
 
@@ -124,4 +124,7 @@
     width: 200px;
     margin-bottom: 10px;
     color: #000;
+}
+.viewing{
+    cursor: pointer;
 }

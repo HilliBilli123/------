@@ -1,11 +1,13 @@
 const links = document.querySelectorAll(".left__menu__link")
 const content = document.querySelectorAll(".panel__body__table")
 const addButton = document.querySelector(".add")
-links.forEach(element =>{
+links.forEach(element => {
+    // links.forEach(el =>{el.classList.remove("active")})
+    // content.forEach(el =>{el.style.display="none"})
     element.addEventListener("click", (e) => {
         e.preventDefault()
-        links.forEach(el =>{el.classList.remove("active")})
-        content.forEach(el =>{el.style.display="none"})
+         links.forEach(el =>{el.classList.remove("active")})
+    content.forEach(el =>{el.style.display="none"})
         content.forEach(el =>{
             if(e.target.id === el.id){
                 e.target.classList.add("active")
@@ -21,8 +23,8 @@ links.forEach(element =>{
                     let childss = childs[0].children
                     let childss1 = Array.from(childss)
                     childss1.shift()
-                    childss1.pop()
-                    childss1.pop()
+                    // childss1.pop()
+                    // childss1.pop()
                     // console.log(childss1)
                     blockContent.innerHTML = ""
                     blockContent.insertAdjacentHTML("beforeEnd",`<input name="table" value="${el.id}" style="display:none;"/>`)
@@ -57,8 +59,8 @@ editBtn.forEach(element => {
         blockAdd.insertAdjacentHTML("beforeEnd", `<input name="id" value="${childs[0].innerHTML}"/>`)
         blockAdd.insertAdjacentHTML("beforeEnd", `<input name="table" value="${tableName.id}"/>`)
         childs.shift()
-        childs.pop()
-        childs.pop()
+        // childs.pop()
+        // childs.pop()
         childs.forEach(element => {
             console.log(element.innerHTML)
             blockAdd.insertAdjacentHTML("beforeEnd",`<input name="item[]" value="${element.innerHTML}"/>`)
@@ -75,5 +77,59 @@ windows.forEach(element =>{
         if(e.target.style.display === "flex"){
             e.target.style.display = "none"
         }
+    })
+})
+
+window.onload = function() {
+    const visibilitis = document.querySelectorAll(".left__menu__block")
+    const work = document.querySelector("#work")
+    console.log(work.innerHTML)
+    if(work.innerHTML === "Продавец"){
+        document.querySelector(".admin__left__menu").style.display="none"
+        document.querySelector(".welcome").style.display="none"
+        document.querySelectorAll("#orders")[1].style.display="block"
+        const add = document.querySelector(".add__button__block")
+        add.style.display="block"
+        add.querySelector(".add").style.display="none"       
+    }
+    if(work.innerHTML === "Бухгалтер"){
+        const chids = document.querySelectorAll(".left__menu__link")
+        chids.forEach(elem => {
+            elem.closest(".left__menu__block").style.display = "none"
+            if ((elem.id == "orders")) {
+                elem.closest(".left__menu__block").style.display="block"
+            }
+              if ((elem.id == "testdrive")) {
+                elem.closest(".left__menu__block").style.display="block"
+            }
+              if ((elem.id == "repair")) {
+                elem.closest(".left__menu__block").style.display="block"
+            }
+            elem.closest(".admin__left__menu").style.justifyContent="space-around"
+        })     
+    }
+    if(work.innerHTML === "Механик"){
+        document.querySelector(".admin__left__menu").style.display="none"
+        document.querySelector(".welcome").style.display="none"
+        document.querySelectorAll("#repair")[1].style.display="block"
+        const add = document.querySelector(".add__button__block")
+        add.style.display="block"
+        add.querySelector(".add").style.display="none"       
+    }
+    if(work.innerHTML === "Тест-драйв"){
+        document.querySelector(".admin__left__menu").style.display="none"
+        document.querySelector(".welcome").style.display="none"
+        document.querySelectorAll("#testdrive")[1].style.display="block"
+        const add = document.querySelector(".add__button__block")
+        add.style.display="block"
+        add.querySelector(".add").style.display="none"       
+    }
+}
+const chek = document.querySelectorAll("#chek")
+
+chek.forEach(element => {
+    element.addEventListener("click", (e) => {
+        const button = e.target.querySelector("button")
+        button.click()
     })
 })

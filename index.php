@@ -35,7 +35,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 				<div class="menu__link__block"><a href="" class="menu__link">Главная</a></div>
 				<div class="menu__link__block"><a href="" class="menu__link">Товары</a></div>
 				<div class="menu__link__block"><a href="" class="menu__link">О нас</a></div>
-				<div class="menu__link__block"><a href="pages/admin/index.php" class="menu__link">Вход</a></div>
+				<div class="menu__link__block"><a href="pages/admin/login.html" class="menu__link">Вход</a></div>
 			</div>
 		</div>
 	</header>
@@ -81,7 +81,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 				<div class="swiper-button-next"></div>
 			</div>
 		</div>
-		<section class="models">
+		<section class="models pading">
 			<div class="models__contain _contein">
 				<div class="models__content">
 					<div class="models__content__title">
@@ -89,8 +89,8 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 					</div>
 					<div class="models-slider swiper">
 						<div class="models-slider__wrapper swiper-wrapper ">
-							<?php	
-							foreach ($cars as $car) {	
+							<?php
+							foreach ($cars as $car) {
 							?>
 								<div class="models-slider__slide swiper-slide ">
 									<div class="models-slider__content">
@@ -104,9 +104,9 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										</a>
 									</div>
 								</div>
-							<?php 
-								}
-							?>	
+							<?php
+							}
+							?>
 						</div>
 						<!-- Стрелки -->
 						<div class="swiper-button-prev"></div>
@@ -120,7 +120,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 				</div>
 			</div>
 		</section>
-		<section class="about">
+		<section class="about pading">
 			<div class="about__contain _contein">
 				<!-- <div class="about__title">О нас</div> -->
 				<div class="about__menu">
@@ -158,7 +158,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
 								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
 							</ul>
-						</div>		
+						</div>
 						<div class="about__info">
 							<ul class="list__benefits">
 								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
@@ -186,7 +186,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 				</div>
 			</div>
 		</section>
-		<section class="order">
+		<section class="order pading">
 			<div class="order__contein _contein">
 				<div class="order__content">
 					<div class="order__title">
@@ -214,13 +214,13 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<select name="cars" id="" class="selected__popap">
 										<?php
-											foreach ($cars as $car) {
+										foreach ($cars as $car) {
 										?>
-											<option class="<?echo $car["yearRelease"]?>" value="<?php echo $car['name'] ?>"><?php echo $car['name'] ?>
+											<option class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['name'] ?>"><?php echo $car['name'] ?>
 											</option>
-											
+
 										<?php
-											}
+										}
 										?>
 									</select>
 								</div>
@@ -228,7 +228,8 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<div class="selected__title">
 										Год выпуска
 									</div>
-									<input name="year" type="text" id="gode" disabled class="popap__lable">
+									<input type="text" id="gode" value="" disabled class="popap__lable">
+
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
@@ -236,11 +237,11 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<select name="classCars" id="" class="selected__popap">
 										<?php
-											foreach ($classes as $classe) {
+										foreach ($classes as $classe) {
 										?>
 											<option value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
 										<?php
-											}
+										}
 										?>
 									</select>
 								</div>
@@ -258,24 +259,26 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										<option value="Оранжевый">Оранжевый</option>
 									</select>
 								</div>
+								<div class="radio__block__title">Дополнительное</div>
 								<div class="radio__block">
-									<div class="radio__block__title">Дополнительное</div>
+
 									<?php
-										foreach ($components as $component) {
+									foreach ($components as $component) {
 									?>
 										<div class="radio__block__content">
-											<input type="checkbox"  name="component[]" value="<?php echo $component['name'] ?>">
-											<?php echo $component['name'] ?>	
+											<input type="checkbox" name="component[]" value="<?php echo $component['name'] ?>">
+											<?php echo $component['name'] ?>
 										</div>
 									<?php
-										}
+									}
 									?>
 								</div>
 								<div class="button__orders__form">
 									<button type="submit">Заказать</button>
 								</div>
-							</div>	
-						</form>			
+							</div>
+							<input name="year" type="text" id="gode" value="" style="display: none;" class="popap__lable">
+						</form>
 						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
 							<input name="order" value="2" type="text" style="display:none;">
 							<div class="order__block" id="repair">
@@ -292,12 +295,12 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<select name="fioMechanic" id="" class="selected__popap">
 										<?php
-											foreach ($staffs as $staff) {
+										foreach ($staffs as $staff) {
 										?>
 											<option value="<?php echo $staff['name'] ?>"><? echo $staff["name"] ?></option>
 										<?php
-											}
-										?>	
+										}
+										?>
 									</select>
 								</div>
 								<div class="order__selected__block">
@@ -312,11 +315,11 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<select name="classCars" id="" class="selected__popap">
 										<?php
-											foreach ($classes as $classe) {
+										foreach ($classes as $classe) {
 										?>
 											<option value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
 										<?php
-											}
+										}
 										?>
 									</select>
 								</div>
@@ -326,20 +329,20 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<select name="cause" id="" class="selected__popap">
 										<?php
-											foreach ($breakdowns as $breakdown) {
+										foreach ($breakdowns as $breakdown) {
 										?>
 											<option value="<?php echo $breakdown['name'] ?>"><? echo $breakdown["name"] ?></option>
 										<?php
-											}
-										?>	
+										}
+										?>
 									</select>
 								</div>
 								<div class="button__orders__form">
 									<button type="submit">Заказать</button>
 								</div>
 							</div>
-						</form>	
-						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">	
+						</form>
+						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
 							<input name="order" value="3" type="text" style="display:none;">
 							<div class="order__block" id="testDrive">
 								<div class="order__block__title">Заказать Тест-драйв</div>
@@ -349,25 +352,25 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<input name="fioClient" type="text" class="popap__lable">
 								</div>
-								<div class="order__selected__block">
+								<!-- <div class="order__selected__block">
 									<div class="selected__title">
 										Паспорт клиента
 									</div>
 									<input name="pasportClient" type="text" class="popap__lable">
-								</div>
+								</div> -->
 								<div class="order__selected__block">
 									<div class="selected__title">
 										Автомобиль
 									</div>
 									<select name="cars" id="" class="selected__popap">
 										<?php
-											foreach ($cars as $car) {
+										foreach ($cars as $car) {
 										?>
-											<option class="<?echo $car["yearRelease"]?>" value="<?php echo $car['id'] ?>"><?php echo $car['name'] ?>
+											<option class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['name'] ?>"><?php echo $car['name'] ?>
 											</option>
-											
+
 										<?php
-											}
+										}
 										?>
 									</select>
 								</div>
@@ -377,11 +380,11 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<select name="classCars" id="" class="selected__popap">
 										<?php
-											foreach ($classes as $classe) {
+										foreach ($classes as $classe) {
 										?>
 											<option value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
 										<?php
-											}
+										}
 										?>
 									</select>
 								</div>
@@ -396,7 +399,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										Время начало
 									</div>
 									<input name="beforeTest" type="time" class="popap__lable">
-									
+
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
@@ -410,20 +413,20 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<select name="fioResponsible" id="" class="selected__popap">
 										<?php
-											foreach ($staffs2 as $staff2) {
+										foreach ($staffs2 as $staff2) {
 										?>
 											<option value="<?php echo $staff2['name'] ?>"><? echo $staff2["name"] ?></option>
 										<?php
-											}
-										?>	
+										}
+										?>
 									</select>
-								</div>	
+								</div>
 								<div class="button__orders__form">
 									<button type="submit">Заказать</button>
 								</div>
 							</div>
 						</form>
-					</div>	
+					</div>
 				</div>
 			</div>
 		</section>
