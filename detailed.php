@@ -2,9 +2,22 @@
 // session_start();
 
 include "inc/connect.php";
-// $result = mysqli_query($connect, "SELECT products.*, category.nameCategory, category.nameCategoryKz FROM `products` join category on category.id = products.type");
-
-// print_r($staffs)
+$carId = $_GET['carID'];
+$details = mysqli_query($connect, "SELECT * FROM `detailed`");
+$cars = mysqli_query($connect, "SELECT * FROM `cars`");
+foreach ($details as $detail) {
+	if($carId == $detail['carId']) {
+		$needDetail = $detail;
+	}
+}
+foreach ($cars as $car) {
+	if($carId == $car['id']) {
+		$needCar = $car;
+	}
+}
+$cars = mysqli_query($connect, "SELECT * FROM `cars` where `id`=$carId");
+// print_r($needCar);
+// print_r($detail);
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +47,64 @@ include "inc/connect.php";
 			</div>
 		</div>
 	</header>
-
-
+	<div class="page__body">
+		<section class="title__detail">
+			<div class="title__contein">
+				<div class="title__content">
+					<img class="img" src="<?php echo $needDetail['titleImg'] ?>" alt="">
+				</div>
+			</div>
+		</section>
+		<section class="interior">
+			<div class="interior__contein _contein">
+				<div class="detail__titels">ИНТЕРЬЕР</div>
+				<div class="interior__content flex">
+					<div class="interior__img">
+						<img src="<?php echo $needDetail['interiorImg'] ?>" alt="">
+					</div>
+					<div class="interior__block">
+						<div class="interior__title">Ең кішкентай бөлшектерге дейін практикалық</div>
+						<div class="interior__text">
+							<?php echo $needDetail['interior'] ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="security">
+			<div class="security__contein _contein">
+				<div class="detail__titels">ҚАУІПСІЗДІК</div>
+				<div class="security__content flex">
+					<div class="security__block">
+						<div class="security__title">Мұқият және сенімділікпен</div>
+						<div class="security__text">
+							<?php echo $needDetail['security'] ?>
+						</div>
+					</div>
+					<div class="security__img">
+						<img src="<?php echo $needDetail['securityImg'] ?>" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="engine">
+			<div class="engine__contein _contein">
+				<div class="detail__titels">қозғалтқыш</div>
+				<div class="engine__content flex">
+					<div class="engine__img">
+						<img src="<?php echo $needDetail['engineImg'] ?>" alt="">
+					</div>
+					<div class="engine__block">
+						<div class="engine__title">Жолдар мен шыңдарды бағындыру</div>
+						<div class="engine__text">
+							<?php echo $needDetail['engine'] ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>	
+	
     <footer class="footer" id="footerMain">
 		<div class="footer__cpntainer _contein">
 			<div class="footer__body">

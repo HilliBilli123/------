@@ -94,7 +94,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 							?>
 								<div class="models-slider__slide swiper-slide ">
 									<div class="models-slider__content">
-										<a href="" class="models-slider__link">
+										<a href="detailed.php?carID=<?php echo $car['id'] ?>" class="models-slider__link">
 											<div class="models-slider__img">
 												<img class="img" src="<?php echo $car['imagePath'] ?>" alt="">
 											</div>
