@@ -1,7 +1,7 @@
 <?php
 include "connect.php";
 $order = $_POST["order"];
-print_r($_POST);
+// print_r($_POST);
 if ($order == 1) {
     $fioClient = $_POST["fioClient"];
     $cars = $_POST["cars"];
@@ -28,8 +28,8 @@ if ($order == 2) {
     $automobile = $_POST["automobile"];
     $cause = $_POST["cause"];
     $classCars = $_POST["classCars"];
-
-    $result = mysqli_query($connect, "INSERT INTO `repair` VALUES (NULL,CURDATE(),'$fioClient','$automobile','$classCars','$fioMechanic','$cause')");
+    
+    $result = mysqli_query($connect, "INSERT INTO `repair` VALUES (NULL,CURDATE(),'$fioClient','$automobile','$classCars','$fioMechanic','$cause',NULL)");
 }
 if ($order == 3) {
     $fioClient = $_POST["fioClient"];
