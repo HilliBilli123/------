@@ -1,6 +1,6 @@
 <?php
-// session_start();
-// $positionId = $_SESSION["user"]["positionId"];
+session_start();
+$positionId = $_SESSION["user"]["positionId"];
 include("../../inc/connect.php");
 $tableNames = mysqli_query($connect, "SELECT * FROM `tablename`");
 $classes = mysqli_query($connect, "SELECT * FROM `classes`");
@@ -45,7 +45,7 @@ foreach ($positions as $position) {
         <div style="display: none;" id="work"><? echo $work ?></div>
         <div class="admin__panel__table">
             <div class="add__button__block">
-                <a class="add__button__block__a" href="../../index.php">На главную</a>
+                <a class="add__button__block__a" href="inc/logout.php">Выход</a>
                 <a class="add__button__block__a add" href="">Добавить</a>
                 <a class="add__button__block__a print" href="">Отчет</a>
                 <form class="form" action="inc/add.php" method="post">

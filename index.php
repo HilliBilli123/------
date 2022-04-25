@@ -228,7 +228,8 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<div class="selected__title">
 										Год выпуска
 									</div>
-									<input name="year" type="text" id="gode" disabled class="popap__lable">
+									<input type="text" id="gode" value="" disabled class="popap__lable">
+
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
@@ -258,8 +259,9 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										<option value="Оранжевый">Оранжевый</option>
 									</select>
 								</div>
+								<div class="radio__block__title">Дополнительное</div>
 								<div class="radio__block">
-									<div class="radio__block__title">Дополнительное</div>
+
 									<?php
 									foreach ($components as $component) {
 									?>
@@ -275,6 +277,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<button type="submit">Заказать</button>
 								</div>
 							</div>
+							<input name="year" type="text" id="gode" value="" style="display: none;" class="popap__lable">
 						</form>
 						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
 							<input name="order" value="2" type="text" style="display:none;">
