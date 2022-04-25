@@ -40,9 +40,10 @@ $cars = mysqli_query($connect, "SELECT * FROM `cars` where `id`=$carId");
 						<img src="resurses/logo.png" alt="">
 					</a>
 				</div>
-				<div class="menu__link__block"><a href="" class="menu__link">Главная</a></div>
-				<div class="menu__link__block"><a href="" class="menu__link">Товары</a></div>
-				<div class="menu__link__block"><a href="" class="menu__link">О нас</a></div>
+				<div class="menu__link__block"><a href="index.php" class="menu__link">Негізгі</a></div>
+				<div class="menu__link__block"><a href="#int" class="menu__link">Интерьер</a></div>
+				<div class="menu__link__block"><a href="#sec" class="menu__link">Қауіпсіздік</a></div>
+				<div class="menu__link__block"><a href="#eng" class="menu__link">Қозғалтқыш</a></div>
 				<div class="menu__link__block"><a href="pages/admin/index.php" class="menu__link">Вход</a></div>
 			</div>
 		</div>
@@ -55,7 +56,7 @@ $cars = mysqli_query($connect, "SELECT * FROM `cars` where `id`=$carId");
 				</div>
 			</div>
 		</section>
-		<section class="interior">
+		<section class="interior" id="int">
 			<div class="interior__contein _contein">
 				<div class="detail__titels">ИНТЕРЬЕР</div>
 				<div class="interior__content flex">
@@ -71,7 +72,7 @@ $cars = mysqli_query($connect, "SELECT * FROM `cars` where `id`=$carId");
 				</div>
 			</div>
 		</section>
-		<section class="security">
+		<section class="security" id="sec">
 			<div class="security__contein _contein">
 				<div class="detail__titels">ҚАУІПСІЗДІК</div>
 				<div class="security__content flex">
@@ -87,7 +88,7 @@ $cars = mysqli_query($connect, "SELECT * FROM `cars` where `id`=$carId");
 				</div>
 			</div>
 		</section>
-		<section class="engine">
+		<section class="engine" id="eng">
 			<div class="engine__contein _contein">
 				<div class="detail__titels">қозғалтқыш</div>
 				<div class="engine__content flex">

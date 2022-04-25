@@ -32,10 +32,10 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 						<img src="resurses/logo.png" alt="">
 					</a>
 				</div>
-				<div class="menu__link__block"><a href="" class="menu__link">Главная</a></div>
-				<div class="menu__link__block"><a href="" class="menu__link">Товары</a></div>
-				<div class="menu__link__block"><a href="" class="menu__link">О нас</a></div>
-				<div class="menu__link__block"><a href="pages/admin/login.html" class="menu__link">Вход</a></div>
+				<div class="menu__link__block"><a href="#" class="menu__link">Негізгі</a></div>
+				<div class="menu__link__block"><a href="#models" class="menu__link">Модельдер</a></div>
+				<div class="menu__link__block"><a href="#about" class="menu__link">Біз туралы</a></div>
+				<div class="menu__link__block"><a href="pages/admin/login.html" class="menu__link">Кіру</a></div>
 			</div>
 		</div>
 	</header>
@@ -51,8 +51,8 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<div class="detailed__contain flex">
 										<div class="detailed__contant flex">
 											<div class="detailed__content__title">Trade-in</div>
-											<div class="detailed__content__text">Новые изменение</div>
-											<a href="" class="open__car__about">Подробное</a>
+											<div class="detailed__content__text">Жаңа өзгеріс</div>
+											<!-- <a href="" class="open__car__about">Подробное</a> -->
 										</div>
 									</div>
 								</div>
@@ -66,9 +66,9 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<img class="img" src="resurses/slajd.jpg" alt="">
 									<div class="detailed__contain flex">
 										<div class="detailed__contant flex">
-											<div class="detailed__content__text">Встречайте</div>
-											<div class="detailed__content__title">Новые модели Kia</div>
-											<a href="" class="open__car__about">Подробное</a>
+											<div class="detailed__content__text">Танысу</div>
+											<div class="detailed__content__title">Жаңа Kia үлгілері</div>
+											<!-- <a href="" class="open__car__about">Подробное</a> -->
 										</div>
 									</div>
 								</div>
@@ -81,11 +81,11 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 				<div class="swiper-button-next"></div>
 			</div>
 		</div>
-		<section class="models pading">
+		<section class="models pading" id="models">
 			<div class="models__contain _contein">
 				<div class="models__content">
 					<div class="models__content__title">
-						Модели Kia
+						Kia Модельдері 
 					</div>
 					<div class="models-slider swiper">
 						<div class="models-slider__wrapper swiper-wrapper ">
@@ -120,13 +120,13 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 				</div>
 			</div>
 		</section>
-		<section class="about pading">
+		<section class="about pading" id="about">
 			<div class="about__contain _contein">
 				<!-- <div class="about__title">О нас</div> -->
 				<div class="about__menu">
 					<div class="about__menu__links about__menu__active" id="company">Di-driver</div>
-					<div class="about__menu__links" id="benefits">Преимущества</div>
-					<div class="about__menu__links" id="history">История</div>
+					<div class="about__menu__links" id="benefits">Артықшылықтары</div>
+					<div class="about__menu__links" id="history">Тарихы</div>
 				</div>
 				<div class="about__block about__active" id="company">
 					<div class="about__block__title">
@@ -135,10 +135,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 					<div class="about__content">
 						<div class="about__info">
 							<div class="about__info__text">
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim accusamus ducimus sint accusantium
-								saepe porro fuga adipisci esse
-								a! Quaerat necessitatibus veritatis molestias voluptates obcaecati asperiores aperiam. Incidunt,
-								nostrum minima?
+							Di-driver компаниясы автомобильдердің адамзатқа маңыздылығы мен әсерін мойындайды. Біз тұтынушының өмірлік серігі болғымыз келетін, жай өндірушіден тыс рөл атқаруға тырысамыз. Біз Di-driver Group құрамында «өмір бойы автокөлік серіктесі» болу және «жақсы болашақ үшін бірге жұмыс істеу» туралы көзқарасымызды орындай отырып, тұтынушылармен жақсы қарым-қатынаста болуға тырысамыз.
 							</div>
 							<div class="about__image">
 								<img class="img" src="resurses/fon3.jpg" alt="">
@@ -153,18 +150,16 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 					<div class="about__content flex">
 						<div class="about__info">
 							<ul class="list__benefits">
-								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
-								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
-								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
-								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+								<li class="about__info__text item__benefist">Біз барлық күш-жігерімізді жұмсай отырып, ең жақсы сапалы және мінсіз қызмет көрсете отырып, тұтынушыға бағытталған корпоративтік мәдениетті алға жылжытамыз.</li>
+								<li class="about__info__text item__benefist">Біз тоқмейілсуден бас тартамыз, Айнымас құмарлық пен тапқырлықпен, үлкен-кіші қиындыққа қарамастан кез келген мүмкіндікті аламыз. мақсаттарымызға қол жеткізетініне сенімді.</li>
+								<li class="about__info__text item__benefist">Біз синергияны компания ішіндегі, сондай-ақ іскер серіктестерімізбен өзара байланыс пен ынтымақтастық арқылы жеңілдетілген «бірлік» сезімі арқылы жасаймыз.</li>
 							</ul>
 						</div>
 						<div class="about__info">
 							<ul class="list__benefits">
-								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
-								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
-								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
-								<li class="about__info__text item__benefist">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, minima?</li>
+								<li class="about__info__text item__benefist">Біз мәдениеттер мен әдет-ғұрыптардың әртүрлілігін құрметтейміз, өз ісімізде әлемдегі ең жақсы болуға және беделді жаһандық корпоративтік азамат болуға ұмтыламыз.</li>
+								<li class="about__info__text item__benefist">Біз автомобиль тұжырымдамасын бүгінгі қарапайым көліктен адамдарды отбасымен, жұмысымен және қоғаммен байланыстыратын жаңа кеңістікке дейін кеңейткіміз келеді. Көлікті адамдар кез келген жерде және кез келген уақытта сенім артатын бақытты кеңістікке айналдыру.</li>
+								<li class="about__info__text item__benefist">Біздің ұйымның болашағы жеке мүшелердің жүрегі мен қабілеттерінде және дарындылықты құрметтейтін корпоративтік мәдениетті құру арқылы олардың әлеуетін дамытуға көмектесетініне сенеміз.</li>
 							</ul>
 						</div>
 					</div>
@@ -173,10 +168,9 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 					<div class="about__content">
 						<div class="about__info">
 							<div class="about__info__text">
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim accusamus ducimus sint accusantium
-								saepe porro fuga adipisci esse
-								a! Quaerat necessitatibus veritatis molestias voluptates obcaecati asperiores aperiam. Incidunt,
-								nostrum minima?
+							KIA Motors (корей тілінде «Азиядан әлемге шығу») - штаб-пәтері Сеулде орналасқан ең көне кореялық автомобиль өндірушісі. Hyundai-KIA Automotive Group қазір әлемдегі бесінші ірі автокөлік өндірушісі. Ол сегіз елдегі 14 өндіріс және құрастыру орындарында жылына 1,4 миллионнан астам көлік шығарады.
+							Сол кезде Kyungsung Precision Industry деп аталатын KIA 1944 жылы 15 мамырда Солтүстік Корея Оңтүстік Кореямен соғысуға дейін аз уақыт бұрын құрылған. Алғашында қазіргі Сеулдің оңтүстігіндегі Яндеунпо қаласындағы шағын зауытта компания велосипедтер, оларға арналған бөлшектер және өнеркәсіп өнімдерін шығарумен айналысса, кейінірек жүк және жеңіл көліктер шығара бастады.
+
 							</div>
 							<div class="about__image__history">
 								<img class="img" src="resurses/fon4.jpg" alt="">
@@ -190,21 +184,21 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 			<div class="order__contein _contein">
 				<div class="order__content">
 					<div class="order__title">
-						Заказать услугу
+					Тапсырыс беру қызметі
 					</div>
 					<div class="order__from__content">
 						<div class="order__menu">
-							<div class="order__menu__links menu__links__active" id="order">Купить</div>
-							<div class="order__menu__links" id="repair">Ремонт</div>
+							<div class="order__menu__links menu__links__active" id="order">Сатып алу</div>
+							<div class="order__menu__links" id="repair">Жөндеу</div>
 							<div class="order__menu__links" id="testDrive">Тест драйв</div>
 						</div>
 						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
 							<input name="order" value="1" type="text" style="display:none;">
 							<div class="order__block _active" id="order">
-								<div class="order__block__title">Заказать автомобиль</div>
+								<div class="order__block__title">Көлікке тапсырыс беріңіз</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										ФИО клиента
+										Клиенттің толық аты-жөні
 									</div>
 									<input name="fioClient" type="text" class="popap__lable">
 								</div>
@@ -226,14 +220,14 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Год выпуска
+									Шыққан жылы
 									</div>
 									<input type="text" id="gode" value="" disabled class="popap__lable">
 
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Комплектация
+									Жабдық
 									</div>
 									<select name="classCars" id="class" class="selected__popap">
 										<?php
@@ -247,19 +241,18 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Цвет
+									Түс
 									</div>
 									<select name="colors" id="" class="selected__popap">
-										<option value="Белый">Белый</option>
-										<option value="Черный">Черный</option>
-										<option value="Серый">Серый</option>
-										<option value="Красный">Красный</option>
-										<option value="Жёлтый">Жёлтый</option>
-										<option value="Синий">Синий</option>
-										<option value="Оранжевый">Оранжевый</option>
+										<option value="Белый">Ақ</option>
+										<option value="Черный">Қара</option>
+										<option value="Серый">Сұр</option>
+										<option value="Красный">Қызыл</option>
+										<option value="Жёлтый">Сары</option>
+										<option value="Синий">Көк</option>
 									</select>
 								</div>
-								<div class="radio__block__title">Дополнительное</div>
+								<div class="radio__block__title">Қосымша</div>
 								<div class="radio__block">
 
 									<?php
@@ -274,9 +267,9 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									?>
 								</div>
 								<div class="button__orders__form">
-									<button type="submit">Заказать</button>
+									<button type="submit">Тапсырыс беру</button>
 									<div class="input">
-										<label for="price">Цена</label>
+										<label for="price">Бағасы</label>
 										<input type="text" id="pricesss" class="popap__lable price" disabled value="">
 										<input type="text" id="fullPrice" name="price" id="" style="display: none;" value="">
 									</div>
@@ -287,16 +280,16 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
 							<input name="order" value="2" type="text" style="display:none;">
 							<div class="order__block" id="repair">
-								<div class="order__block__title">Заказать ремонт</div>
+								<div class="order__block__title">Жөндеуге тапсырыс беріңіз</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										ФИО клиента
+									Клиенттің толық аты-жөні
 									</div>
 									<input name="fioClient" type="text" class="popap__lable">
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										ФИО Механика
+										Механиктын толық аты-жөні
 									</div>
 									<select name="fioMechanic" id="" class="selected__popap">
 										<?php
@@ -316,7 +309,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Комплектация
+										Жабдық
 									</div>
 									<select name="classCars" id="" class="selected__popap">
 										<?php
@@ -330,7 +323,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Причина поломки
+									 Бұзылу себептері
 									</div>
 									<select name="cause" id="" class="selected__popap">
 										<?php
@@ -343,17 +336,17 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</select>
 								</div>
 								<div class="button__orders__form">
-									<button type="submit">Заказать</button>
+									<button type="submit">Тапсырыс беру</button>
 								</div>
 							</div>
 						</form>
 						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
 							<input name="order" value="3" type="text" style="display:none;">
 							<div class="order__block" id="testDrive">
-								<div class="order__block__title">Заказать Тест-драйв</div>
+								<div class="order__block__title">Тест-драйв тапсырыс беру</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										ФИО клиента
+									Клиенттің толық аты-жөні
 									</div>
 									<input name="fioClient" type="text" class="popap__lable">
 								</div>
@@ -381,7 +374,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Комплектация
+									Жабдық
 									</div>
 									<select name="classCars" id="" class="selected__popap">
 										<?php
@@ -395,26 +388,26 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Дата тест-драйва
+									Сынақ жүргізу күні
 									</div>
 									<input name="dataTest" type="date" class="popap__lable">
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Время начало
+									Басталу уақыты
 									</div>
 									<input name="beforeTest" type="time" class="popap__lable">
 
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Время конца
+									Аяқталу уақыты
 									</div>
 									<input name="afterTest" type="time" class="popap__lable">
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Ответственный
+									Жауапты
 									</div>
 									<select name="fioResponsible" id="" class="selected__popap">
 										<?php
@@ -427,7 +420,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</select>
 								</div>
 								<div class="button__orders__form">
-									<button type="submit">Заказать</button>
+									<button type="submit">Тапсырыс беру</button>
 								</div>
 							</div>
 						</form>
@@ -440,7 +433,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 		<div class="footer__cpntainer _contein">
 			<div class="footer__body">
 				<div class="footer__contacts">
-					<div class="footer__contacts _footer-title">Контакты</div>
+					<div class="footer__contacts _footer-title">Контактілер</div>
 					<ul class="footer__contacts__list">
 						<li><a href="tel:87475608836" class="footer__contacts__link">87475608836</a></li>
 						<li><a href="tel:87475608836" class="footer__contacts__link">87475608836</a></li>
@@ -449,7 +442,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 					</ul>
 				</div>
 				<div class="footer__socialMedia">
-					<div class="footer__socialMedia _footer-title">Следите за нами</div>
+					<div class="footer__socialMedia _footer-title">Бізге жазылыңыздар</div>
 					<ul class="footer__socialMedia__list">
 						<li><a href="" class="footer__socialMedia__link icon-facebook2">TestDrive</a></li>
 						<li><a href="" class="footer__socialMedia__link icon-instagram">TestDrive</a></li>
