@@ -1,11 +1,13 @@
 const links = document.querySelectorAll(".left__menu__link")
 const content = document.querySelectorAll(".panel__body__table")
 const addButton = document.querySelector(".add")
-links.forEach(element =>{
+links.forEach(element => {
+    // links.forEach(el =>{el.classList.remove("active")})
+    // content.forEach(el =>{el.style.display="none"})
     element.addEventListener("click", (e) => {
         e.preventDefault()
-        links.forEach(el =>{el.classList.remove("active")})
-        content.forEach(el =>{el.style.display="none"})
+         links.forEach(el =>{el.classList.remove("active")})
+    content.forEach(el =>{el.style.display="none"})
         content.forEach(el =>{
             if(e.target.id === el.id){
                 e.target.classList.add("active")
@@ -91,3 +93,11 @@ window.onload = function() {
         add.querySelector(".add").style.display="none"       
     }
 }
+const chek = document.querySelectorAll("#chek")
+
+chek.forEach(element => {
+    element.addEventListener("click", (e) => {
+        const button = e.target.querySelector("button")
+        button.click()
+    })
+})

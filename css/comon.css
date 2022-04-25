@@ -33,7 +33,7 @@ a {
 
 *::-webkit-scrollbar {
 	width: 10px;
-	
+
 }
 
 *::-webkit-scrollbar-track {
@@ -47,4 +47,8 @@ a {
 ul[class],
 ol[class] {
 	list-style: none;
+}
+
+.pading {
+	padding: 40px 0px;
 }
