@@ -212,11 +212,11 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<div class="selected__title">
 										Автомобиль
 									</div>
-									<select name="cars" id="" class="selected__popap">
+									<select name="cars" id="cars" class="selected__popap">
 										<?php
 										foreach ($cars as $car) {
 										?>
-											<option class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['name'] ?>"><?php echo $car['name'] ?>
+											<option data-price-car="<? echo $car["price"] ?>" class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['name'] ?>"><?php echo $car['name'] ?>
 											</option>
 
 										<?php
@@ -235,11 +235,11 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<div class="selected__title">
 										Комплектация
 									</div>
-									<select name="classCars" id="" class="selected__popap">
+									<select name="classCars" id="class" class="selected__popap">
 										<?php
 										foreach ($classes as $classe) {
 										?>
-											<option value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
+											<option data-class="<? echo $classe["price"] ?>" value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
 										<?php
 										}
 										?>
@@ -266,7 +266,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									foreach ($components as $component) {
 									?>
 										<div class="radio__block__content">
-											<input type="checkbox" name="component[]" value="<?php echo $component['name'] ?>">
+											<input id="componetW" data-components="<? echo $component["price"] ?>" type="checkbox" name="component[]" value="<?php echo $component['name'] ?>">
 											<?php echo $component['name'] ?>
 										</div>
 									<?php
@@ -275,6 +275,11 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="button__orders__form">
 									<button type="submit">Заказать</button>
+									<div class="input">
+										<label for="price">Цена</label>
+										<input type="text" id="pricesss" class="popap__lable price" disabled value="">
+										<input type="text" id="fullPrice" name="price" id="" style="display: none;" value="">
+									</div>
 								</div>
 							</div>
 							<input name="year" type="text" id="gode" value="" style="display: none;" class="popap__lable">
@@ -458,6 +463,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 	<script src="js/swiper-bundle.min.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/price.js"></script>
 </body>
 
 </html>

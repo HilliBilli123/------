@@ -9,12 +9,16 @@ if ($order == 1) {
     $classCars = $_POST["classCars"];
     $colors = $_POST["colors"];
     $components = $_POST["component"];
-    foreach ($components as $component) {
-        if (!$componentName) {
-            $componentName = "$component";
-        } else {
-            $componentName = "$componentName,$component";
+    if ($components) {
+        foreach ($components as $component) {
+            if (!$componentName) {
+                $componentName = "$component";
+            } else {
+                $componentName = "$componentName,$component";
+            }
         }
+    } else {
+        $componentName = "";
     }
     $result = mysqli_query($connect, "INSERT INTO `orders` VALUES (NULL,'$fioClient','$cars','$year','$classCars','$componentName','555',CURDATE(),'$colors')");
 }
