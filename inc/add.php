@@ -29,7 +29,7 @@ if ($order == 2) {
     $cause = $_POST["cause"];
     $classCars = $_POST["classCars"];
 
-    $result = mysqli_query($connect, "INSERT INTO `repair` VALUES (NULL,CURDATE(),'$fioClient','$automobile','$classCars','$fioMechanic','$cause')");
+    $result = mysqli_query($connect, "INSERT INTO `repair` VALUES (NULL,CURDATE(),'$fioClient','$automobile','$classCars','$fioMechanic','$cause',NULL)");
 }
 if ($order == 3) {
     $fioClient = $_POST["fioClient"];
