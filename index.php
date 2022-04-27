@@ -204,6 +204,12 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
+										Клиенттің нөмірі
+									</div>
+									<input name="numClient" type="tel" placeholder="+7 (701) XXX-XX-XX" class="popap__lable">
+								</div>
+								<div class="order__selected__block">
+									<div class="selected__title">
 										Автомобиль
 									</div>
 									<select name="cars" id="cars" class="selected__popap">

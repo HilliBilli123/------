@@ -4,6 +4,7 @@ $order = $_POST["order"];
 print_r($_POST);
 if ($order == 1) {
     $fioClient = $_POST["fioClient"];
+    $numClient = $_POST["numClient"];
     $cars = $_POST["cars"];
     $year = $_POST["year"];
     $classCars = $_POST["classCars"];
@@ -20,7 +21,7 @@ if ($order == 1) {
     } else {
         $componentName = "";
     }
-    $result = mysqli_query($connect, "INSERT INTO `orders` VALUES (NULL,'$fioClient','$cars','$year','$classCars','$componentName','555',CURDATE(),'$colors')");
+    $result = mysqli_query($connect, "INSERT INTO `orders` VALUES (NULL,'$fioClient','$numClient','$cars','$year','$classCars','$componentName','555',CURDATE(),'$colors')");
 }
 if ($order == 2) {
     $fioClient = $_POST["fioClient"];
