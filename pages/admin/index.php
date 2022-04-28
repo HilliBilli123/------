@@ -179,7 +179,8 @@ foreach ($positions as $position) {
                 <div class="panel__body__table" id="orders">
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
-                        <div class="table__header__title table__title">Клиент</div>
+                        <div class="table__header__title table__title">ФИО клиента</div>
+                        <div class="table__header__title table__title">Номер клиент</div>
                         <div class="table__header__title table__title">Машина</div>
                         <div class="table__header__title table__title">Год выпуска</div>
                         <div class="table__header__title table__title">Класс</div>
@@ -195,6 +196,7 @@ foreach ($positions as $position) {
                         <div class="body__table__line _table-color flex">
                             <div class="table__title"><? echo $breakdown["id"] ?></div>
                             <div class="table__title"><? echo $breakdown["fioClient"] ?></div>
+                            <div class="table__title"><? echo $breakdown["numClient"] ?></div>
                             <div class="table__title"><? echo $breakdown["carId"] ?></div>
                             <div class="table__title"><? echo $breakdown["year"] ?></div>
                             <div class="table__title"><? echo $breakdown["clasessesId"] ?></div>

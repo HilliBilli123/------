@@ -64,13 +64,13 @@ new Swiper('.models-slider',{
     //     draggable: true,
     // }
     // Включение/отключение перетаскивание на ПК
-    simulateTouch: false,
+    simulateTouch: true,
     // Чувствительность свайпа 
     touchratio: 1,
     // Угол срабатывание 
     touchangle: 45,
     // Курсор перетаскиване
-    // grabCursor: true,
+    grabCursor: true,
     // Количество слайдов
     slidesPerView: 2,
     loop: true,
