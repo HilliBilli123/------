@@ -210,79 +210,22 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
+										Номер
+									</div>
+									<input type="tel" name="number" value="" class="popap__lable">
+
+								</div>
+								<div class="order__selected__block">
+									<div class="selected__title">
 										Автомобиль
 									</div>
-									<select name="cars" id="cars" class="selected__popap">
-										<?php
-										foreach ($cars as $car) {
-										?>
-											<option data-price-car="<? echo $car["price"] ?>" class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['name'] ?>"><?php echo $car['name'] ?>
-											</option>
-
-										<?php
-										}
-										?>
-									</select>
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Год выпуска
-									</div>
-									<input type="text" id="gode" value="" disabled class="popap__lable">
-
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Комплектация
-									</div>
-									<select name="classCars" id="class" class="selected__popap">
-										<?php
-										foreach ($classes as $classe) {
-										?>
-											<option data-class="<? echo $classe["price"] ?>" value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
-										<?php
-										}
-										?>
-									</select>
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Цвет
-									</div>
-									<select name="colors" id="" class="selected__popap">
-										<option value="Белый">Белый</option>
-										<option value="Черный">Черный</option>
-										<option value="Серый">Серый</option>
-										<option value="Красный">Красный</option>
-										<option value="Жёлтый">Жёлтый</option>
-										<option value="Синий">Синий</option>
-										<option value="Оранжевый">Оранжевый</option>
-									</select>
-								</div>
-								<div class="radio__block__title">Дополнительное</div>
-								<div class="radio__block">
-
-									<?php
-									foreach ($components as $component) {
-									?>
-										<div class="radio__block__content">
-											<input id="componetW" data-components="<? echo $component["price"] ?>" type="checkbox" name="component[]" value="<?php echo $component['name'] ?>">
-											<?php echo $component['name'] ?>
-										</div>
-									<?php
-									}
-									?>
+									<input type="text" name="car" class="popap__lable">
 								</div>
 								<div class="button__orders__form">
 									<button type="submit">Заказать</button>
-									<div class="input">
-										<label for="price">Цена</label>
-										<input type="text" id="pricesss" class="popap__lable price" disabled value="">
-										<input type="text" id="fullPrice" name="price" id="" style="display: none;" value="">
-									</div>
 								</div>
 							</div>
-							<input name="year" type="text" id="gode" value="" style="display: none;" class="popap__lable">
+							<input name="stats" type="text" id="" value="Сатып алу" style="display: none;">
 						</form>
 						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
 							<input name="order" value="2" type="text" style="display:none;">
@@ -296,55 +239,21 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										ФИО Механика
+										Номер
 									</div>
-									<select name="fioMechanic" id="" class="selected__popap">
-										<?php
-										foreach ($staffs as $staff) {
-										?>
-											<option value="<?php echo $staff['name'] ?>"><? echo $staff["name"] ?></option>
-										<?php
-										}
-										?>
-									</select>
+									<input type="tel" name="number" value="" class="popap__lable">
+
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
 										Автомобиль
 									</div>
-									<input name="automobile" type="text" class="popap__lable">
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Комплектация
-									</div>
-									<select name="classCars" id="" class="selected__popap">
-										<?php
-										foreach ($classes as $classe) {
-										?>
-											<option value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
-										<?php
-										}
-										?>
-									</select>
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Причина поломки
-									</div>
-									<select name="cause" id="" class="selected__popap">
-										<?php
-										foreach ($breakdowns as $breakdown) {
-										?>
-											<option value="<?php echo $breakdown['name'] ?>"><? echo $breakdown["name"] ?></option>
-										<?php
-										}
-										?>
-									</select>
+									<input type="text" name="car" class="popap__lable">
 								</div>
 								<div class="button__orders__form">
 									<button type="submit">Заказать</button>
 								</div>
+								<input name="stats" type="text" id="" value="Жондеу" style="display: none;">
 							</div>
 						</form>
 						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
@@ -357,75 +266,20 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<input name="fioClient" type="text" class="popap__lable">
 								</div>
-								<!-- <div class="order__selected__block">
+								<div class="order__selected__block">
 									<div class="selected__title">
-										Паспорт клиента
+										Номер
 									</div>
-									<input name="pasportClient" type="text" class="popap__lable">
-								</div> -->
+									<input type="text" name="number" value="" class="popap__lable">
+
+								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
 										Автомобиль
 									</div>
-									<select name="cars" id="" class="selected__popap">
-										<?php
-										foreach ($cars as $car) {
-										?>
-											<option class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['name'] ?>"><?php echo $car['name'] ?>
-											</option>
-
-										<?php
-										}
-										?>
-									</select>
+									<input type="text" name="car" class="popap__lable">
 								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Комплектация
-									</div>
-									<select name="classCars" id="" class="selected__popap">
-										<?php
-										foreach ($classes as $classe) {
-										?>
-											<option value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
-										<?php
-										}
-										?>
-									</select>
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Дата тест-драйва
-									</div>
-									<input name="dataTest" type="date" class="popap__lable">
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Время начало
-									</div>
-									<input name="beforeTest" type="time" class="popap__lable">
-
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Время конца
-									</div>
-									<input name="afterTest" type="time" class="popap__lable">
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Ответственный
-									</div>
-									<select name="fioResponsible" id="" class="selected__popap">
-										<?php
-										foreach ($staffs2 as $staff2) {
-										?>
-											<option value="<?php echo $staff2['name'] ?>"><? echo $staff2["name"] ?></option>
-										<?php
-										}
-										?>
-									</select>
-								</div>
+								<input name="stats" type="text" id="" value="Тест-драйв" style="display: none;">
 								<div class="button__orders__form">
 									<button type="submit">Заказать</button>
 								</div>
@@ -451,10 +305,10 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 				<div class="footer__socialMedia">
 					<div class="footer__socialMedia _footer-title">Следите за нами</div>
 					<ul class="footer__socialMedia__list">
-						<li><a href="" class="footer__socialMedia__link icon-facebook2">TestDrive</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-instagram">TestDrive</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-telegram">TestDrive</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-telegram">TestDrive</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-facebook2">Di-Drive</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-instagram">Di-Drive</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-telegram">Di-Drive</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-telegram">Di-Drive</a></li>
 					</ul>
 				</div>
 			</div>
@@ -463,7 +317,6 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 	<script src="js/swiper-bundle.min.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/script.js"></script>
-	<script src="js/price.js"></script>
 </body>
 
 </html>

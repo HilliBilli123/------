@@ -216,6 +216,31 @@ foreach ($positions as $position) {
                     }
                     ?>
                 </div>
+                <div class="panel__body__table" id="order1">
+                    <div class="body__table__line body__table__header flex">
+                        <div class="table__header__title table__title">Код</div>
+                        <div class="table__header__title table__title">Клиент</div>
+                        <div class="table__header__title table__title">Номер</div>
+                        <div class="table__header__title table__title">Машина</div>
+                        <div class="table__header__title table__title">Статус</div>
+                        <!-- <div class="table__header__title table__title">Редактировать</div> -->
+                    </div>
+                    <?php
+                    $breakdowns = mysqli_query($connect, "SELECT * FROM `order1`");
+                    foreach ($breakdowns as $breakdown) {
+                    ?>
+                        <div class="body__table__line _table-color flex">
+                            <div class="table__title"><? echo $breakdown["id"] ?></div>
+                            <div class="table__title"><? echo $breakdown["fio"] ?></div>
+                            <div class="table__title"><? echo $breakdown["number"] ?></div>
+                            <div class="table__title"><? echo $breakdown["car"] ?></div>
+                            <div class="table__title"><? echo $breakdown["stats"] ?></div>
+                            <!-- <div class="table__title"><a href="inc/delete.php?id=<?php echo $breakdown["id"] ?>&table=orders" class="icon-bin"></a></div> -->
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
                 <div class="panel__body__table" id="positions">
                     <div class="body__table__line body__table__header flex">
                         <div class="table__header__title table__title">Код</div>
