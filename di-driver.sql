@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 24 2022 г., 13:00
--- Версия сервера: 10.3.29-MariaDB
--- Версия PHP: 7.1.33
+-- Время создания: Апр 30 2022 г., 07:22
+-- Версия сервера: 10.3.22-MariaDB
+-- Версия PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -62,7 +62,7 @@ CREATE TABLE `cars` (
 
 INSERT INTO `cars` (`id`, `name`, `yearRelease`, `new`, `classId`, `price`, `imagePath`) VALUES
 (1, 'Rio', '2018', '1', '1', '123123', 'resurses/png_RIO.png'),
-(2, 'Picanto', '2021', '0', '2', '7 990 000', 'resurses/picanto.png'),
+(2, 'Picanto', '2021', '0', '2', '7990000', 'resurses/picanto.png'),
 (3, 'Kia Soul', '2019', '0', '2', '787878787', 'resurses/soul.png');
 
 -- --------------------------------------------------------
@@ -129,6 +129,29 @@ INSERT INTO `customers` (`id`, `name`, `pasport`, `addres`, `phone`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `order1`
+--
+
+CREATE TABLE `order1` (
+  `id` int(11) NOT NULL,
+  `fio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `car` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `stats` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `order1`
+--
+
+INSERT INTO `order1` (`id`, `fio`, `number`, `car`, `stats`) VALUES
+(1, '123123', '', '123123', 'Сатып алу'),
+(2, '123123', '13123', '123123', 'Сатып алу'),
+(3, '123123', '13123', '123123', 'Жондеу');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `orders`
 --
 
@@ -149,10 +172,15 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `fioClient`, `carId`, `year`, `clasessesId`, `components`, `price`, `date`, `color`) VALUES
-(1, '1', '1', '0', '1', '20.02.2022', '1', '1', '0'),
-(4, '1', '1', '0', '1', 'Компонет', 'цена', 'дата продажи', '0'),
-(5, 'Bagi', 'Rio', '', 'Комфорт', 'Магнитола,Электропакет', '555', 'CURDATE()', 'Белый'),
-(6, 'Bagi', 'Rio', '', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-24', 'Белый');
+(6, 'Bagi', 'Rio', '2018', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-24', 'Белый'),
+(7, '123123', 'Rio', '', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-25', 'Белый'),
+(8, '123123', 'Rio', '', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-25', 'Белый'),
+(9, '123123', 'Rio', '', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-25', 'Белый'),
+(10, '123123', 'Rio', '', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-25', 'Белый'),
+(11, '123123', 'Rio', '', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-25', 'Белый'),
+(12, '123123', 'Rio', '2018', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-25', 'Белый'),
+(13, '123123', 'Rio', '2018', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-25', 'Белый'),
+(14, '123123', 'Rio', '2018', 'Комфорт', '', '555', '2022-04-25', 'Белый');
 
 -- --------------------------------------------------------
 
@@ -173,7 +201,8 @@ INSERT INTO `positions` (`id`, `name`) VALUES
 (2, 'Продавец'),
 (3, 'Механик'),
 (4, 'Бухгалтер'),
-(5, 'Тест-драйв');
+(5, 'Тест-драйв'),
+(6, 'Админ');
 
 -- --------------------------------------------------------
 
@@ -199,15 +228,17 @@ CREATE TABLE `repair` (
   `automobile` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `classId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fioMechanic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cause` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `cause` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dateEnd` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `repair`
 --
 
-INSERT INTO `repair` (`id`, `date`, `fioClient`, `automobile`, `classId`, `fioMechanic`, `cause`) VALUES
-(1, '2022-04-24', 'Bagi', 'Kia', 'Комфорт', 'Алексей', 'Не исправный двигатель');
+INSERT INTO `repair` (`id`, `date`, `fioClient`, `automobile`, `classId`, `fioMechanic`, `cause`, `dateEnd`) VALUES
+(1, '2022-04-24', 'Bagi', 'Kia', 'Комфорт', 'Алексей', 'Не исправный двигатель', '2022-04-25'),
+(2, '2022-04-25', '123123', '123', 'Комфорт', 'Алексей', 'Не исправный двигатель', '2022-04-25');
 
 -- --------------------------------------------------------
 
@@ -231,10 +262,11 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `name`, `addres`, `phone`, `pasport`, `postionId`, `email`, `passowrd`) VALUES
-(1, 'Стажор', '123123', '123123', '123123', 2, NULL, NULL),
+(1, 'Стажор', '123123', '123123', '123123', 2, 'Продавец', '1'),
 (3, 'Алексей', 'Кенесары 29', '454545', '0156468468', 3, 'alex@mail.ru', '123456'),
 (4, 'Игорь', 'Богенбая 55', '457548', '78889994', 5, 'igor@mail.ru', '123456'),
-(5, 'Екатерина', 'Женис 56', '845264', '4687446541', 4, 'katya@mail.ru', '123456');
+(5, 'Екатерина', 'Женис 56', '845264', '4687446541', 4, 'katya@mail.ru', '123456'),
+(6, 'Adimn', '', '', '', 0, 'Admin', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -262,7 +294,10 @@ INSERT INTO `tablename` (`id`, `nameTable`, `nameTableKZ`, `nameTableRU`) VALUES
 (6, 'orders', '	Автомобильді төлеу', NULL),
 (7, 'positions', 'Лауазымдар', NULL),
 (8, 'reason', 'Бұзылу себептері', NULL),
-(9, 'staff', 'Қызметкерлер', NULL);
+(9, 'staff', 'Қызметкерлер', NULL),
+(21, 'testdrive', 'Тест-драйв', NULL),
+(22, 'repair', 'Жондеу', NULL),
+(23, 'order1', 'Все', NULL);
 
 -- --------------------------------------------------------
 
@@ -274,7 +309,6 @@ CREATE TABLE `testdrive` (
   `id` int(11) NOT NULL,
   `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fioClient` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pasportClient` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `automobile` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `classId` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `dateTest` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -287,8 +321,8 @@ CREATE TABLE `testdrive` (
 -- Дамп данных таблицы `testdrive`
 --
 
-INSERT INTO `testdrive` (`id`, `date`, `fioClient`, `pasportClient`, `automobile`, `classId`, `dateTest`, `timeBefore`, `timeAfter`, `responsible`) VALUES
-(1, '2022-04-24', 'Bagi', '4564646', '1', 'Комфорт', '2022-04-13', '15:59', '15:01', 'Игорь');
+INSERT INTO `testdrive` (`id`, `date`, `fioClient`, `automobile`, `classId`, `dateTest`, `timeBefore`, `timeAfter`, `responsible`) VALUES
+(1, '2022-04-24', 'Bagi', '1', 'Комфорт', '2022-04-13', '15:59', '15:01', 'Игорь');
 
 --
 -- Индексы сохранённых таблиц
@@ -322,6 +356,12 @@ ALTER TABLE `components`
 -- Индексы таблицы `customers`
 --
 ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `order1`
+--
+ALTER TABLE `order1`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -374,7 +414,7 @@ ALTER TABLE `testdrive`
 -- AUTO_INCREMENT для таблицы `breakdown`
 --
 ALTER TABLE `breakdown`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `cars`
@@ -401,16 +441,22 @@ ALTER TABLE `customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT для таблицы `order1`
+--
+ALTER TABLE `order1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `reason`
@@ -422,19 +468,19 @@ ALTER TABLE `reason`
 -- AUTO_INCREMENT для таблицы `repair`
 --
 ALTER TABLE `repair`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `tablename`
 --
 ALTER TABLE `tablename`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `testdrive`
