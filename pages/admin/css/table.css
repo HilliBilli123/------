@@ -13,12 +13,14 @@
     border-right: 3px solid black;
 }
 
-.body__table__line:nth-child(2n) .table__title a{
+.body__table__line:nth-child(2n) .table__title a {
     color: black;
 }
 
-.panel__body__table {
-    overflow-y: auto;
+.panel__body__table {}
+
+.body__table {
+    /* overflow-y: auto; */
     border: 3px solid black;
 }
 
@@ -82,6 +84,11 @@
     background-color: #fff;
 }
 
+.add {
+    margin-bottom: 10px;
+    
+}
+
 .form {
     display: none;
     position: absolute;
@@ -125,6 +132,7 @@
     margin-bottom: 10px;
     color: #000;
 }
-.viewing{
+
+.viewing {
     cursor: pointer;
 }

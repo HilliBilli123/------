@@ -8,15 +8,15 @@ contsnt.forEach(elem => {
             e.preventDefault()
             const header = elem.querySelectorAll(".table__header__title")
             const links = elem.querySelectorAll(".body__table__line._table-color")
-            console.log()
-            // const linksArr = Array.from(links) 
+            // console.log()
+            const linksArr = Array.from(links) 
             const headerArr = Array.from(header)
-            // headerArr.pop()
-            // headerArr.pop()
-            // linksArr.pop()
-            // linksArr.pop()
-                console.log(headerArr)
-                block.innerHTML = ""
+            headerArr.pop()
+            headerArr.pop()
+            linksArr.pop()
+            linksArr.pop()
+            console.log(headerArr)
+            block.innerHTML = ""
             headerArr.forEach(elem =>{
                 block.insertAdjacentHTML("beforeend",`<input name="title[]" value="${elem.innerHTML}"/>`)
             })
@@ -24,18 +24,18 @@ contsnt.forEach(elem => {
             links.forEach(elements =>{
                 const item = elements.querySelectorAll(".table__title")
                 const items = Array.from(item)
-                // items.pop()
-                // items.pop()
+                items.pop()
+                items.pop()
                 items.forEach(e =>{
                     block.insertAdjacentHTML("beforeend",`<input name="items${i}[]" value="${e.innerHTML}" />`)     
                 })
                 i++
             })
-            console.log(links)
+            // console.log(links)
             block.insertAdjacentHTML("beforeend",`<button class="printOtchetS" type="submit">Отчет</button>`)
-                document.querySelector(".printOtchetS").click()
-                 }
-            })
+            document.querySelector(".printOtchetS").click()
+        }
+    })
        
 })
 // buttonOtchet.addEventListener("click", (e) =>{
