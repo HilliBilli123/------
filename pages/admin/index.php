@@ -88,6 +88,9 @@ foreach ($positions as $position) {
                                             <input type="text" name="name" value="<? echo $breakdown["name"] ?>">
                                             <button type="submit">Добавить</button>
                                         </div>
+                                    </form>
+                                </div>
+                            </div>
                     <?php
                     }
                     ?>
@@ -376,6 +379,9 @@ foreach ($positions as $position) {
                                         <button type="submit"></button>
                                     </form>
                                 </div>
+                            <?
+                            }
+                            ?>
                                 <div class="table__title"><a href="inc/delete.php?id=<? echo $breakdown['id'] ?>&table=breakdown" class="icon-bin"></a></div>
                             </div>
                         <?php
