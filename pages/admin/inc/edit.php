@@ -8,6 +8,24 @@ $yearRelease = $_POST["yearRelease"];
 $new = $_POST["new"];
 $price = $_POST["price"];
 $chek = $_POST["chek"];
+$fioClient = $_POST["fioClient"];
+$car = $_POST["car"];
+$class = $_POST["class"];
+$components = $_POST["components"];
+
+if($components){
+	foreach($components as $component){
+		if(!$txt){
+			$txt = "$component";
+		}else{
+			$txt = "$txt,$component";
+	}
+	}
+}else{
+	$txt = NULL;
+}
+$numClient = $_POST["numClient"];
+
 include "../../../inc/connect.php";
 // $break = mysqli_query($connect, "SELECT * FROM `cars` WHERE `id` = '$id'");
 // print_r($break);
@@ -37,6 +55,9 @@ if ($table == "components") {
 }
 if ($table == "change") {
 	mysqli_query($connect, "UPDATE `repair` SET `dateEnd` = '$chek' WHERE `id`='$id'");
+}
+if ($table == "orders") {
+	mysqli_query($connect, "UPDATE `orders` SET `fioClient` = '$fioClient', `numClient` = '$numClient', `carId` = '$car', `clasessesId` = '$class', `components` = '$txt', `price` = '$price' WHERE `id`='$id'");
 }
 
 // mysqli_query($connect, "UPDATE `repair` SET `dateEnd`='$date' WHERE `id`='$id'");

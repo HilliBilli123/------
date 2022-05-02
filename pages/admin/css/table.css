@@ -5,12 +5,12 @@
 
 .body__table__line:nth-child(2n) {
     background-color: white;
-    color: black;
+    color: #000;
 }
 
-.body__table__line:nth-child(2n) .table__title {
-    color: black;
-    border-right: 3px solid black;
+.body__table__line:nth-child(2n) .table__title:not(:last-child){
+    color: #000;
+    border-right: 3px solid #7CAEC6;
 }
 
 .body__table__line:nth-child(2n) .table__title a {
@@ -21,12 +21,12 @@
 
 .body__table {
     /* overflow-y: auto; */
-    border: 3px solid black;
+    border: 3px solid #7CAEC6;
 }
 
 .body__table__line {
     justify-content: space-between;
-    background-color: #000;
+    background-color: #7CAEC6;
     color: white;
 
 }
@@ -95,7 +95,7 @@
     padding: 20px;
     width: 200px;
     color: white;
-    background-color: #000;
+    background-color: #7CAEC6;
     border: 1px solid black;
     transition: .5s all;
 }
@@ -104,7 +104,9 @@
     color: black;
     background-color: #fff;
 }
-
+#chek{
+    color: #000;
+}
 .add {
     margin-bottom: 10px;
     

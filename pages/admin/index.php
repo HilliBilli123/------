@@ -338,8 +338,8 @@ foreach ($positions as $position) {
                         <div class="body__table__line body__table__header flex">
                             <div class="table__header__title table__title">Код</div>
                             <div class="table__header__title table__title">Клиент</div>
+                            <div class="table__header__title table__title">Номер</div>
                             <div class="table__header__title table__title">Машина</div>
-                            <!-- <div class="table__header__title table__title">Год выпуска</div> -->
                             <div class="table__header__title table__title">Класс</div>
                             <div class="table__header__title table__title">Компоненты</div>
                             <div class="table__header__title table__title">Цена</div>
@@ -354,6 +354,7 @@ foreach ($positions as $position) {
                             <div class="body__table__line _table-color flex">
                                 <div class="table__title"><? echo $breakdown["id"] ?></div>
                                 <div class="table__title"><? echo $breakdown["fioClient"] ?></div>
+                                <div class="table__title"><? echo $breakdown["numClient"] ?></div>
                                 <?
                                     foreach($cars as $car){
                                         if($breakdown['carId'] == $car["id"]){
@@ -365,7 +366,7 @@ foreach ($positions as $position) {
                                     }
                                 ?>
                                 
-                                <!-- <div class="table__title"><? echo $breakdown["year"] ?></div> -->
+                               
                                 <?
                                     foreach($classes as $classe){
                                         if($breakdown["clasessesId"] == $classe["id"]){
@@ -386,6 +387,8 @@ foreach ($positions as $position) {
                                             <input type="text" style="display: none;" value="orders" name="table">
                                             <label for="name">Клиент</label>
                                             <input type="text" name="fioClient" value="<? echo $breakdown["fioClient"] ?>">
+                                            <label for="name">Номер</label>
+                                            <input type="text" name="numClient" value="<? echo $breakdown["numClient"] ?>">
                                             <label for="name">Машина</label>
                                             <select name="car" id="">
                                             <?
@@ -421,14 +424,16 @@ foreach ($positions as $position) {
                                             <label for="name">Компоненты</label>
                                             <div class="components">
                                             <?
+                                                $coons = preg_split("/[\s,]+/",$breakdown["components"]) ;
+                                                // print_r($coons);
+                                                $i = 0;
                                                 foreach($components as $component){
-                                                    $coons = preg_split("/[\s,]+/",$breakdown["components"]) ;
-                                                    $i = 0;
-                                                    foreach($coons as $coon){
-                                                    if($coon[$i] == $component["name"]){
+                                                    // echo $coon, $component["name"];
+                                                    if($coons[$i] == $component["name"]){
                                                     ?>
                                                         <div class="components__input"><input type="checkbox" checked name="components[]" value="<?echo $component["name"]?>" id=""><?echo $component["name"]?></div>
                                                     <?
+                                                    
                                                     }else{
                                                         ?>
                                                         <div class="components__input"><input type="checkbox" name="components[]" value="<?echo $component["name"]?>" id=""><?echo $component["name"]?></div>
@@ -436,7 +441,6 @@ foreach ($positions as $position) {
                                                     } 
                                                     $i++;
                                                 }
-                                            }
                                             ?>
                                             </div>
                                             <!-- <input type="text" name="components" value="<? echo $breakdown["components"] ?>"> -->
@@ -477,7 +481,7 @@ foreach ($positions as $position) {
                                 <div class="table__title"><a href="" class="icon-edit"></a>
                                     <form action="inc/edit.php" method="post" class="form">
                                         <div class="from__content__add">
-                                            <input type="text" style="display: none;" value="<? echo $breakdown["id"] ?>">
+                                            <input type="text" style="display: none;" name="id" value="<? echo $breakdown["id"] ?>">
                                             <input type="text" style="display: none;" value="order1" name="table">
                                             <label for="name">ФИО покупателя</label>
                                             <input type="text" name="fio" value="<? echo $breakdown["fio"] ?>">
@@ -624,19 +628,21 @@ foreach ($positions as $position) {
                     </div>
                 </div>
                 <div class="panel__body__table" id="testdrive">
-                    <a class="add__button__block__a add" href="">Добавить</a>
+                    <!-- <a class="add__button__block__a add" href="">Добавить</a> -->
                     <div class="body__table">
                         <div class="body__table__line body__table__header flex">
                             <div class="table__header__title table__title">Код</div>
                             <div class="table__header__title table__title">ФИО</div>
-                            <!-- <div class="table__header__title table__title">Паспорт</div> -->
+                            <div class="table__header__title table__title">Номер</div>
                             <div class="table__header__title table__title">Автомобиль</div>
                             <div class="table__header__title table__title">Класс</div>
                             <div class="table__header__title table__title">Дата</div>
-                            <div class="table__header__title table__title">Время</div>
+                            <!-- <div class="table__header__title table__title">Время</div> -->
                             <!-- <div class="table__header__title table__title">Окончание</div> -->
-                            <div class="table__header__title table__title">Ответственный</div>
+                            <!-- <div class="table__header__title table__title">Ответственный</div> -->
                             <div class="table__header__title table__title">Статус</div>
+                            <div class="table__header__title table__title">Редактирование</div>
+                            <div class="table__header__title table__title">Удалить</div>
                         </div>
                         <?php
                         $breakdowns = mysqli_query($connect, "SELECT * FROM `testdrive`");
@@ -645,25 +651,76 @@ foreach ($positions as $position) {
                             <div class="body__table__line _table-color flex">
                                 <div class="table__title"><? echo $breakdown["id"] ?></div>
                                 <div class="table__title"><? echo $breakdown["fioClient"] ?></div>
-                                <!-- <div class="table__title"><? echo $breakdown["pasportClient"] ?></div> -->
-                                <div class="table__title"><? echo $breakdown["automobile"] ?></div>
-                                <div class="table__title"><? echo $breakdown["classId"] ?></div>
+                                <div class="table__title"><? echo $breakdown["numClient"] ?></div>
+                                <?
+                                foreach($cars as $car){
+                                    if($car["id"] == $breakdown["automobile"]){
+                                        ?>
+                                        <div class="table__title"><? echo $car["name"] ?></div>
+                                        <?
+                                    }
+                                }
+                                foreach($classes as $classe){
+                                    if($classe["id"] == $breakdown["classId"]){
+                                        ?>
+                                            <div class="table__title"><? echo $classe["name"] ?></div>
+                                        <?
+                                    }
+                                }
+                                ?>                       
                                 <div class="table__title"><? echo $breakdown["dateTest"] ?></div>
-                                <div class="table__title"><? echo $breakdown['timeBefore'], " от ", $breakdown['timeAfter'] ?></div>
                                 <!-- <div class="table__title"><? echo $breakdown["timeAfter"] ?></div> -->
                                 <div class="table__title"><? echo $breakdown["responsible"] ?></div>
-                                <?
-                                $date = date('H:i');
-                                if ($breakdown["timeAfter"] > $date) {
-                                ?>
-                                    <div class="table__title">Тест-драйв<br>пройден</div>
-                                <?
-                                } else {
-                                ?>
-                                    <div class="table__title">В работе</div>
-                                <?
-                                }
-                                ?>
+                                <div class="table__title"><a href="" class="icon-edit"></a>
+                                    <form action="inc/edit.php" method="post" class="form">
+                                        <div class="from__content__add">
+                                            <input type="text" style="display: none;" name="id" value="<? echo $breakdown["id"] ?>">
+                                            <input type="text" style="display: none;" value="testdrive" name="table">
+                                            <label for="name">ФИО покупателя</label>
+                                            <input type="text" name="fioClient" value="<? echo $breakdown["fioClient"] ?>">
+                                            <label for="name">Номер</label>
+                                            <input type="text" name="numClient" value="<? echo $breakdown["numClient"] ?>">
+                                            <label for="name">Дата</label>
+                                            <input type="text" name="dateTest" value="<? echo $breakdown["dateTest"] ?>">
+                                            <label for="name">Машина</label>
+                                            <select name="car" id="">
+                                            <?
+                                                foreach($cars as $car){
+                                                    if($breakdown["carId"] == $car["id"]){
+                                                        ?>
+                                                            <option value="<?echo $car["id"]?>" selected ><?echo $car["name"]?></option>
+                                                        <?
+                                                    }else{
+                                                        ?>
+                                                            <option value="<?echo $car["id"]?>"><?echo $car["name"]?></option>
+                                                        <?
+                                                    }
+                                                }
+                                            ?>
+                                            </select>
+                                            <label for="name">Класс</label>
+                                            <select name="class" id="">
+                                            <?
+                                                foreach($classes as $classe){
+                                                    if($breakdown["clasessesId"] == $classe["id"]){
+                                                        ?>
+                                                            <option value="<?echo $classe["id"]?>" selected ><?echo $classe["name"]?></option>
+                                                        <?
+                                                    }else{
+                                                        ?>
+                                                            <option value="<?echo $classe["id"]?>"><?echo $classe["name"]?></option>
+                                                        <?
+                                                    }
+                                                }
+                                            ?>
+                                            </select>
+                                            <label for="name">Статус</label>
+                                            <input type="text" name="stats" value="<? echo $breakdown["responsible"] ?>">
+                                            <button type="submit">Добавить</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="table__title"><a href="inc/delete.php?id=<? echo $breakdown['id'] ?>&table=testdrive" class="icon-bin"></a></div>
                             </div>
                         <?php
                         }
@@ -671,7 +728,7 @@ foreach ($positions as $position) {
                     </div>
                 </div>
                 <div class="panel__body__table" id="repair">
-                    <a class="add__button__block__a add" href="">Добавить</a>
+                    <!-- <a class="add__button__block__a add" href="">Добавить</a> -->
                     <div class="body__table">
                         <div class="body__table__line body__table__header flex">
                             <div class="table__header__title table__title">Код</div>
