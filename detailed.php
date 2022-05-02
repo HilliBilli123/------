@@ -4,7 +4,9 @@
 include "inc/connect.php";
 $carId = $_GET['carID'];
 $details = mysqli_query($connect, "SELECT * FROM `detailed`");
+$classes = mysqli_query($connect, "SELECT * FROM `classes`");
 $cars = mysqli_query($connect, "SELECT * FROM `cars`");
+$harackters = mysqli_query($connect, "SELECT * FROM `harackter`");
 foreach ($details as $detail) {
 	if($carId == $detail['carId']) {
 		$needDetail = $detail;
@@ -15,8 +17,15 @@ foreach ($cars as $car) {
 		$needCar = $car;
 	}
 }
+$harackterId = $needCar['harackterId'];
+foreach ($harackters as $harackter) {
+	if($harackterId == $harackter['id']) {
+		$needHarackter = $harackter;
+	}
+}
+
 $cars = mysqli_query($connect, "SELECT * FROM `cars` where `id`=$carId");
-// print_r($needCar);
+print_r($needHarackter);
 // print_r($detail);
 ?>
 
@@ -36,7 +45,7 @@ $cars = mysqli_query($connect, "SELECT * FROM `cars` where `id`=$carId");
 		<div class="header__contein _contein">
 			<div class="header__contein__menu flex">
 				<div class="menu__link__block">
-					<a href="" class="logo__image">
+					<a href="index.php" class="logo__image">
 						<img src="resurses/logo.png" alt="">
 					</a>
 				</div>
@@ -53,6 +62,72 @@ $cars = mysqli_query($connect, "SELECT * FROM `cars` where `id`=$carId");
 			<div class="title__contein">
 				<div class="title__content">
 					<img class="img" src="<?php echo $needDetail['titleImg'] ?>" alt="">
+				</div>
+			</div>
+		</section>
+		<section class="harackter">
+			<div class="harackter__contein _contein">
+				<div class="detail__titels">Сипаттама</div>
+				<div class="harackter__content">
+					<div class="harackter__description">
+						<div class="description__block">
+							<div class="description__title">
+								Қозғалтқыш көлемі	
+							</div>
+							<div class="description__text">
+								<?php echo $needHarackter['engCap'] ?>	
+							</div>
+						</div>
+						<div class="description__block">
+							<div class="description__title">
+								Жанармай түрі	
+							</div>
+							<div class="description__text">
+								<?php echo $needHarackter['fuelType'] ?>	
+							</div>
+						</div>
+						<div class="description__block">
+							<div class="description__title">
+								Жетек түрі
+							</div>
+							<div class="description__text">
+								<?php echo $needHarackter['typeDrive'] ?>	
+							</div>
+						</div>
+						<div class="description__block">
+							<div class="description__title">
+								Қозғалтқыш қуаты
+							</div>
+							<div class="description__text">
+								<?php echo $needHarackter['engPower'] ?>	
+							</div>
+						</div>
+						<div class="description__block">
+							<div class="description__title">
+								Қозғалтқыш қуаты
+							</div>
+							<div class="description__text">
+								<?php echo $needHarackter['gearboxType'] ?>	
+							</div>
+						</div>
+						<div class="description__block">
+							<div class="description__title">
+								Беріліс саны	
+							</div>
+							<div class="description__text">
+								<?php echo $needHarackter['numberGears'] ?>	
+							</div>
+						</div>
+					</div>
+					<div class="harackter__price">
+						<div class="price__title">Бастапқы бағасы</div>
+						<div class="price">
+							<?php echo $needCar['price'] ?>
+						</div>
+						<div class="harackter__img">
+							<img class="img" src="<?php echo $needCar['imagePath'] ?>" alt="">
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

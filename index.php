@@ -151,7 +151,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 						<div class="about__info">
 							<ul class="list__benefits">
 								<li class="about__info__text item__benefist">Біз барлық күш-жігерімізді жұмсай отырып, ең жақсы сапалы және мінсіз қызмет көрсете отырып, тұтынушыға бағытталған корпоративтік мәдениетті алға жылжытамыз.</li>
-								<li class="about__info__text item__benefist">Біз тоқмейілсуден бас тартамыз, Айнымас құмарлық пен тапқырлықпен, үлкен-кіші қиындыққа қарамастан кез келген мүмкіндікті аламыз. мақсаттарымызға қол жеткізетініне сенімді.</li>
+								<li class="about__info__text item__benefist">Біз тоқмейілсуден бас тартамыз, айнымас құмарлық пен тапқырлықпен, үлкен-кіші қиындыққа қарамастан кез келген мүмкіндікті аламыз.</li>
 								<li class="about__info__text item__benefist">Біз синергияны компания ішіндегі, сондай-ақ іскер серіктестерімізбен өзара байланыс пен ынтымақтастық арқылы жеңілдетілген «бірлік» сезімі арқылы жасаймыз.</li>
 							</ul>
 						</div>
@@ -204,14 +204,13 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Номер
 										Клиенттің нөмірі
 									</div>
 									<input name="numClient" type="tel" placeholder="+7 (701) XXX-XX-XX" class="popap__lable">
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Автомобиль
+										Автомобиль маркасы
 									</div>
 									<select name="cars" id="cars" class="selected__popap">
 										<?php
@@ -225,22 +224,16 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										?>
 									</select>
 								</div>
-								<div class="order__selected__block">
+								<!-- <div class="order__selected__block">
 									<div class="selected__title">
 									Шыққан жылы
 									</div>
-									<input type="tel" name="number" value="" class="popap__lable">
+									<input type="text" id="gode" value="" disabled class="popap__lable">
 
-								</div>
+								</div> -->
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Автомобиль
-									</div>
-									<input type="text" name="car" class="popap__lable">
-								</div>
-								<div class="button__orders__form">
-									<button type="submit">Заказать</button>
-									Жабдық
+										Жабдық
 									</div>
 									<select name="classCars" id="class" class="selected__popap">
 										<?php
@@ -252,7 +245,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										?>
 									</select>
 								</div>
-								<div class="order__selected__block">
+								<!-- <div class="order__selected__block">
 									<div class="selected__title">
 									Түс
 									</div>
@@ -264,8 +257,8 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										<option value="Жёлтый">Сары</option>
 										<option value="Синий">Көк</option>
 									</select>
-								</div>
-								<div class="radio__block__title">Қосымша</div>
+								</div> -->
+								<!-- <div class="radio__block__title">Қосымша</div>
 								<div class="radio__block">
 
 									<?php
@@ -278,17 +271,17 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<?php
 									}
 									?>
-								</div>
+								</div> -->
 								<div class="button__orders__form">
 									<button type="submit">Тапсырыс беру</button>
-									<div class="input">
+									<!-- <div class="input">
 										<label for="price">Бағасы</label>
 										<input type="text" id="pricesss" class="popap__lable price" disabled value="">
 										<input type="text" id="fullPrice" name="price" id="" style="display: none;" value="">
-									</div>
+									</div> -->
 								</div>
 							</div>
-							<input name="stats" type="text" id="" value="Сатып алу" style="display: none;">
+							<input name="year" type="text" id="gode" value="" style="display: none;" class="popap__lable">
 						</form>
 						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
 							<input name="order" value="2" type="text" style="display:none;">
@@ -302,32 +295,16 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Номер
-										Механиктын толық аты-жөні
+										Клиенттің нөмірі
 									</div>
-									<input type="tel" name="number" value="" class="popap__lable">
-
+									<input name="numClient" type="tel" placeholder="+7 (701) XXX-XX-XX" class="popap__lable">
 								</div>
+								
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Автомобиль
+									Автомобиль маркасы
 									</div>
-									<input type="text" name="car" class="popap__lable">
 									<input name="automobile" type="text" class="popap__lable">
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Жабдық
-									</div>
-									<select name="classCars" id="" class="selected__popap">
-										<?php
-										foreach ($classes as $classe) {
-										?>
-											<option value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
-										<?php
-										}
-										?>
-									</select>
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
@@ -346,7 +323,6 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								<div class="button__orders__form">
 									<button type="submit">Тапсырыс беру</button>
 								</div>
-								<input name="stats" type="text" id="" value="Жондеу" style="display: none;">
 							</div>
 						</form>
 						<form action="inc/add.php" enctype="multipart/form-data" method="post" class="popap__form">
@@ -355,13 +331,16 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								<div class="order__block__title">Тест-драйв тапсырыс беру</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-									Клиенттің толық аты-жөні
+										Клиенттің толық аты-жөні
 									</div>
 									<input name="fioClient" type="text" class="popap__lable">
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-										Номер
+										Клиенттің нөмірі
+									</div>
+									<input name="numClient" type="tel" placeholder="+7 (701) XXX-XX-XX" class="popap__lable">
+								</div>
 								<!-- <div class="order__selected__block">
 									<div class="selected__title">
 										Паспорт клиента
@@ -386,7 +365,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-									Жабдық
+										Жабдық
 									</div>
 									<select name="classCars" id="" class="selected__popap">
 										<?php
@@ -400,31 +379,11 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-									Сынақ жүргізу күні
+										Сынақ жүргізу күні
 									</div>
 									<input name="dataTest" type="date" class="popap__lable">
 								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-									Басталу уақыты
-									</div>
-									<input type="text" name="number" value="" class="popap__lable">
-
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-										Автомобиль
-									Аяқталу уақыты
-									</div>
-									<input name="afterTest" type="time" class="popap__lable">
-								</div>
-								<div class="order__selected__block">
-									<div class="selected__title">
-									Жауапты
-									</div>
-									<input type="text" name="car" class="popap__lable">
-								</div>
-								<input name="stats" type="text" id="" value="Тест-драйв" style="display: none;">
+								
 								<div class="button__orders__form">
 									<button type="submit">Тапсырыс беру</button>
 								</div>
@@ -441,19 +400,19 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 				<div class="footer__contacts">
 					<div class="footer__contacts _footer-title">Контактілер</div>
 					<ul class="footer__contacts__list">
-						<li><a href="tel:87475608836" class="footer__contacts__link">87475608836</a></li>
-						<li><a href="tel:87475608836" class="footer__contacts__link">87475608836</a></li>
-						<li><a href="tel:87475608836" class="footer__contacts__link icon-whatsapp">87475608836</a></li>
-						<li><a href="" class="footer__contacts__link icon-location2">Аль фараби 110</a></li>
+						<li><a href="tel:87475608836" class="footer__contacts__link">87475251918</a></li>
+						<li><a href="tel:87475608836" class="footer__contacts__link">87475251918</a></li>
+						<li><a href="tel:87475608836" class="footer__contacts__link icon-whatsapp">87475251918</a></li>
+						<li><a href="" class="footer__contacts__link icon-location2">Туран 53А</a></li>
 					</ul>
 				</div>
 				<div class="footer__socialMedia">
 					<div class="footer__socialMedia _footer-title">Бізге жазылыңыздар</div>
 					<ul class="footer__socialMedia__list">
-						<li><a href="" class="footer__socialMedia__link icon-facebook2">Di-Drive</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-instagram">Di-Drive</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-telegram">Di-Drive</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-telegram">Di-Drive</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-facebook2">DiDriver</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-instagram">DiDriver</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-telegram">DiDriver</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-telegram">DiDriver</a></li>
 					</ul>
 				</div>
 			</div>
@@ -462,6 +421,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 	<script src="js/swiper-bundle.min.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/price.js"></script>
 </body>
 
 </html>
