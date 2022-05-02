@@ -11,43 +11,38 @@ if ($order == 1) {
     $fioClient = $_POST["fioClient"];
     $numClient = $_POST["numClient"];
     $cars = $_POST["cars"];
-    $year = $_POST["year"];
     $classCars = $_POST["classCars"];
-    $colors = $_POST["colors"];
-    $components = $_POST["component"];
-    if ($components) {
-        foreach ($components as $component) {
-            if (!$componentName) {
-                $componentName = "$component";
-            } else {
-                $componentName = "$componentName,$component";
-            }
-        }
-    } else {
-        $componentName = "";
-    }
-    $result = mysqli_query($connect, "INSERT INTO `orders` VALUES (NULL,'$fioClient','$numClient','$cars','$year','$classCars','$componentName','555',CURDATE(),'$colors')");
+    // if ($components) {
+    //     foreach ($components as $component) {
+    //         if (!$componentName) {
+    //             $componentName = "$component";
+    //         } else {
+    //             $componentName = "$componentName,$component";
+    //         }
+    //     }
+    // } else {
+    //     $componentName = "";
+    // }
+    $result = mysqli_query($connect, "INSERT INTO `orders` VALUES (NULL,'$fioClient','$numClient','$cars',NULL,'$classCars',NULL,'0',CURDATE(),NULL)");
 }
 if ($order == 2) {
     $fioClient = $_POST["fioClient"];
-    $fioMechanic = $_POST["fioMechanic"];
     $automobile = $_POST["automobile"];
+    $numClient = $_POST["numClient"];
     $cause = $_POST["cause"];
-    $classCars = $_POST["classCars"];
+    // $classCars = $_POST["classCars"];
 
-    $result = mysqli_query($connect, "INSERT INTO `repair` VALUES (NULL,CURDATE(),'$fioClient','$automobile','$classCars','$fioMechanic','$cause',NULL)");
+    $result = mysqli_query($connect, "INSERT INTO `repair` VALUES (NULL,CURDATE(),'$fioClient','$numClient','$automobile',NULL,NULL,'$cause',NULL)");
 }
 if ($order == 3) {
     $fioClient = $_POST["fioClient"];
+    $numClient = $_POST["numClient"];
     // $pasportClient = "В работе";
     $cars = $_POST["cars"];
     $classCars = $_POST["classCars"];
     $dataTest = $_POST["dataTest"];
-    $beforeTest = $_POST["beforeTest"];
-    $afterTest = $_POST["afterTest"];
-    $fioResponsible = $_POST["fioResponsible"];
 
-    $result = mysqli_query($connect, "INSERT INTO `testdrive` VALUES (NULL,CURDATE(),'$fioClient','$cars','$classCars','$dataTest','$beforeTest','$afterTest','$fioResponsible')");
+    $result = mysqli_query($connect, "INSERT INTO `testdrive` VALUES (NULL,CURDATE(),'$fioClient','$numClient','$cars','$classCars','$dataTest',NULL,NULL,NULL)");
 }
 // $table = $_POST["table"];
 // $items = $_POST["item"];
