@@ -1,3 +1,3 @@
 <?php
 
-    $connect = mysqli_connect('localhost', 'root', '', 'di-driver');
+    $connect = mysqli_connect('localhost', 'root', 'root', 'di-driver');

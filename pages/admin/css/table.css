@@ -57,18 +57,36 @@
     height: 100%;
     display: flex;
 }
-
+.from__content__add input,select,option {
+    width: 200px;
+    margin-bottom: 10px;
+    color: #000;
+}
 .welcome__content {
     color: #000;
 }
-
+.components{
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
 .add__button__block {
     text-align: right;
     display: none;
     margin-bottom: 10px;
     /* position: relative; */
 }
-
+.components__input{
+    display: flex;
+    width: 200px;
+    margin-bottom: 10px;
+}
+.components__input input{
+    margin-bottom: 0px;
+    width: 50px;
+}
 .add__button__block__a {
     text-align: center;
     padding: 20px;
@@ -127,11 +145,7 @@
     border: 2px solid #fff;
 }
 
-.from__content__add input {
-    width: 200px;
-    margin-bottom: 10px;
-    color: #000;
-}
+
 
 .viewing {
     cursor: pointer;

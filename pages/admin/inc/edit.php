@@ -28,6 +28,12 @@ if ($table == "cars") {
 if ($table == "breakdown") {
 	mysqli_query($connect, "UPDATE $table SET `name` = '$name' WHERE `id`='$id'");
 }
+if ($table == "classes") {
+	mysqli_query($connect, "UPDATE $table SET `name` = '$name' , `price` = '$price' WHERE `id`='$id'");
+}
+if ($table == "components") {
+	mysqli_query($connect, "UPDATE $table SET `name` = '$name' , `price` = '$price' WHERE `id`='$id'");
+}
 
 // mysqli_query($connect, "UPDATE `repair` SET `dateEnd`='$date' WHERE `id`='$id'");
 // header('Location: ../index.php');

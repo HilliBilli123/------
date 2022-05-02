@@ -25,7 +25,13 @@ if ($table == "breakdown") {
 	mysqli_query($connect, "INSERT INTO $table VALUES (NULL,'$name')");
 }
 if ($table == "classes") {
-	mysqli_query($connect, "INSERT INTO $table VALUES (NULL,'$name')");
+	mysqli_query($connect, "INSERT INTO $table VALUES (NULL,'$name','$price')");
+}
+if ($table == "components") {
+	mysqli_query($connect, "INSERT INTO $table VALUES (NULL,'$name','$price')");
+}
+if ($table == "orders") {
+	mysqli_query($connect, "INSERT INTO $table VALUES (NULL,'$name','$price')");
 }
 
 
