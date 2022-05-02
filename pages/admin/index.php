@@ -90,7 +90,7 @@ foreach ($positions as $position) {
                                         </div>
                                     </form>
                                 </div>
-                            </div>
+                            </div>     
                     <?php
                     }
                     ?>
