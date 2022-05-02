@@ -30,9 +30,6 @@ if ($table == "classes") {
 if ($table == "components") {
 	mysqli_query($connect, "INSERT INTO $table VALUES (NULL,'$name','$price')");
 }
-if ($table == "orders") {
-	mysqli_query($connect, "INSERT INTO $table VALUES (NULL,'$name','$price')");
-}
 
 
 header('Location: ../index.php');

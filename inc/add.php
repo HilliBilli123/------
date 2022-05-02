@@ -6,7 +6,7 @@ $car = $_POST["car"];
 $stats = $_POST["stats"];
 mysqli_query($connect, "INSERT INTO `order1` VALUES (NULL,'$fio','$number','$car','$stats')");
 $order = $_POST["order"];
-print_r($_POST);
+// print_r($_POST);
 if ($order == 1) {
     $fioClient = $_POST["fioClient"];
     $numClient = $_POST["numClient"];

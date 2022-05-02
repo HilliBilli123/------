@@ -1,12 +1,13 @@
 <?php
 session_start();
 $id = $_POST["id"];
-echo $id;
+// echo $id;
 $table = $_POST["table"];
 $name = $_POST["name"];
 $yearRelease = $_POST["yearRelease"];
 $new = $_POST["new"];
 $price = $_POST["price"];
+$chek = $_POST["chek"];
 include "../../../inc/connect.php";
 // $break = mysqli_query($connect, "SELECT * FROM `cars` WHERE `id` = '$id'");
 // print_r($break);
@@ -34,6 +35,9 @@ if ($table == "classes") {
 if ($table == "components") {
 	mysqli_query($connect, "UPDATE $table SET `name` = '$name' , `price` = '$price' WHERE `id`='$id'");
 }
+if ($table == "change") {
+	mysqli_query($connect, "UPDATE `repair` SET `dateEnd` = '$chek' WHERE `id`='$id'");
+}
 
 // mysqli_query($connect, "UPDATE `repair` SET `dateEnd`='$date' WHERE `id`='$id'");
-// header('Location: ../index.php');
+header('Location: ../index.php');

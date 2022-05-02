@@ -216,7 +216,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										<?php
 										foreach ($cars as $car) {
 										?>
-											<option data-price-car="<? echo $car["price"] ?>" class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['name'] ?>"><?php echo $car['name'] ?>
+											<option data-price-car="<? echo $car["price"] ?>" class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['id'] ?>"><?php echo $car['name'] ?>
 											</option>
 
 										<?php
@@ -239,7 +239,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										<?php
 										foreach ($classes as $classe) {
 										?>
-											<option data-class="<? echo $classe["price"] ?>" value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
+											<option data-class="<? echo $classe["price"] ?>" value="<?php echo $classe['id'] ?>"><? echo $classe["name"] ?></option>
 										<?php
 										}
 										?>
@@ -310,15 +310,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<div class="selected__title">
 									 	Бұзылу себептері
 									</div>
-									<select name="cause" id="" class="selected__popap">
-										<?php
-										foreach ($breakdowns as $breakdown) {
-										?>
-											<option value="<?php echo $breakdown['name'] ?>"><? echo $breakdown["name"] ?></option>
-										<?php
-										}
-										?>
-									</select>
+									<input name="cause" type="text" class="popap__lable">
 								</div>
 								<div class="button__orders__form">
 									<button type="submit">Тапсырыс беру</button>
@@ -349,7 +341,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										<?php
 										foreach ($cars as $car) {
 										?>
-											<option class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['name'] ?>"><?php echo $car['name'] ?>
+											<option class="<? echo $car["yearRelease"] ?>" value="<?php echo $car['id'] ?>"><?php echo $car['name'] ?>
 											</option>
 
 										<?php
@@ -365,7 +357,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 										<?php
 										foreach ($classes as $classe) {
 										?>
-											<option value="<?php echo $classe['name'] ?>"><? echo $classe["name"] ?></option>
+											<option value="<?php echo $classe['id'] ?>"><? echo $classe["name"] ?></option>
 										<?php
 										}
 										?>

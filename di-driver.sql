@@ -381,7 +381,7 @@ INSERT INTO `tablename` (`id`, `nameTable`, `nameTableKZ`, `nameTableRU`) VALUES
 (3, 'classes', 'Автомобиль класстары', NULL),
 (4, 'components', 'Компоненттер', NULL),
 (5, 'customers', 'Клиенттер', NULL),
-(6, 'orders', 'Автомобильді төлеу', NULL),
+(6, 'orders', 'Сатып алу', NULL),
 (7, 'positions', 'Лауазымдар', NULL),
 (8, 'reason', 'Бұзылу себептері', NULL),
 (9, 'staff', 'Қызметкерлер', NULL),
