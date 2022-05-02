@@ -24,6 +24,13 @@ if ($order == 1) {
     //     $componentName = "";
     // }
     $result = mysqli_query($connect, "INSERT INTO `orders` VALUES (NULL,'$fioClient','$numClient','$cars',NULL,'$classCars',NULL,'0',CURDATE(),NULL)");
+    $order1s = mysqli_query($connect, "SELECT * FROM `orders`");
+    foreach($order1s as $order1){
+        $idOrder = $order1['id'];
+    }
+    // print_r($fioClient);
+    // $classCars = $order["id"];
+    $result1 = mysqli_query($connect, "INSERT INTO `orders1` VALUES (NULL,'$idOrder','$fioClient','$numClient','Сатып алу')");
 }
 if ($order == 2) {
     $fioClient = $_POST["fioClient"];
@@ -33,6 +40,11 @@ if ($order == 2) {
     // $classCars = $_POST["classCars"];
 
     $result = mysqli_query($connect, "INSERT INTO `repair` VALUES (NULL,CURDATE(),'$fioClient','$numClient','$automobile',NULL,NULL,'$cause',NULL)");
+    $repairs = mysqli_query($connect, "SELECT * FROM `repair`");
+    foreach($repairs as $repair){
+        $idRepair = $repair['id'];
+    }
+    $result1 = mysqli_query($connect, "INSERT INTO `orders1` VALUES (NULL,'$idRepair','$fioClient','$numClient','Жөндеу')");
 }
 if ($order == 3) {
     $fioClient = $_POST["fioClient"];
@@ -43,6 +55,11 @@ if ($order == 3) {
     $dataTest = $_POST["dataTest"];
 
     $result = mysqli_query($connect, "INSERT INTO `testdrive` VALUES (NULL,CURDATE(),'$fioClient','$numClient','$cars','$classCars','$dataTest',NULL,NULL,NULL)");
+    $testdrives = mysqli_query($connect, "SELECT * FROM `testdrive`");
+    foreach($testdrives as $testdrive){
+        $idTestdrive = $testdrive['id'];
+    }
+    $result1 = mysqli_query($connect, "INSERT INTO `orders1` VALUES (NULL,'$idTestdrive','$fioClient','$numClient','Тест драйв')");
 }
 // $table = $_POST["table"];
 // $items = $_POST["item"];

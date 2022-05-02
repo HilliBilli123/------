@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 30 2022 г., 18:49
+-- Время создания: Май 02 2022 г., 10:29
 -- Версия сервера: 10.3.29-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -230,7 +230,44 @@ INSERT INTO `orders` (`id`, `fioClient`, `numClient`, `carId`, `year`, `clasesse
 (12, '123123', '', 'Rio', '2018', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-25', 'Белый'),
 (13, '123123', '', 'Rio', '2018', 'Комфорт', 'Магнитола,Электропакет', '555', '2022-04-25', 'Белый'),
 (14, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '555', '2022-04-30', NULL),
-(15, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-04-30', NULL);
+(15, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-04-30', NULL),
+(16, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(17, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(18, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(19, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(20, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(21, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(22, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(23, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(24, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(25, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(26, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(27, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(28, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL),
+(29, 'Bagi', '87475608836', 'Seltos', NULL, 'Эконом', NULL, '0', '2022-05-02', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders1`
+--
+
+CREATE TABLE `orders1` (
+  `id` int(11) NOT NULL,
+  `idOrder` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fioClient` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `numClient` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `typeOrder` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `orders1`
+--
+
+INSERT INTO `orders1` (`id`, `idOrder`, `fioClient`, `numClient`, `typeOrder`) VALUES
+(1, '29', 'Bagi', '87475608836', 'Сатып алу'),
+(2, '4', 'Bagi', '87475608836', 'Жөндеу'),
+(3, '3', 'Bagi', '87475608836', 'Тест драйв');
 
 -- --------------------------------------------------------
 
@@ -290,7 +327,8 @@ CREATE TABLE `repair` (
 INSERT INTO `repair` (`id`, `date`, `fioClient`, `numClient`, `automobile`, `classId`, `fioMechanic`, `cause`, `dateEnd`) VALUES
 (1, '2022-04-24', 'Bagi', NULL, 'Kia', 'Комфорт', 'Алексей', 'Не исправный двигатель', '2022-04-25'),
 (2, '2022-04-30', 'Bagi', '87475608836', 'Kia', '', NULL, 'Не исправный двигатель', NULL),
-(3, '2022-04-30', 'Bagi', '87475608836', 'Kia', NULL, NULL, 'Не исправный инжектор', NULL);
+(3, '2022-04-30', 'Bagi', '87475608836', 'Kia', NULL, NULL, 'Не исправный инжектор', NULL),
+(4, '2022-05-02', 'Bagi', '87475608836', 'Kia', NULL, NULL, 'Не исправный двигатель', NULL);
 
 -- --------------------------------------------------------
 
@@ -343,12 +381,13 @@ INSERT INTO `tablename` (`id`, `nameTable`, `nameTableKZ`, `nameTableRU`) VALUES
 (3, 'classes', 'Автомобиль класстары', NULL),
 (4, 'components', 'Компоненттер', NULL),
 (5, 'customers', 'Клиенттер', NULL),
-(6, 'orders', '	Автомобильді төлеу', NULL),
+(6, 'orders', 'Автомобильді төлеу', NULL),
 (7, 'positions', 'Лауазымдар', NULL),
 (8, 'reason', 'Бұзылу себептері', NULL),
 (9, 'staff', 'Қызметкерлер', NULL),
 (21, 'testdrive', 'Тест-драйв', NULL),
-(22, 'repair', 'Жондеу', NULL);
+(22, 'repair', 'Жондеу', NULL),
+(23, 'orders1', 'Тапсырыстар', 'Заказы');
 
 -- --------------------------------------------------------
 
@@ -375,7 +414,8 @@ CREATE TABLE `testdrive` (
 
 INSERT INTO `testdrive` (`id`, `date`, `fioClient`, `numClient`, `automobile`, `classId`, `dateTest`, `timeBefore`, `timeAfter`, `responsible`) VALUES
 (1, '2022-04-24', 'Bagi', NULL, '1', 'Комфорт', '2022-04-13', '15:59', '15:01', 'Игорь'),
-(2, '2022-04-30', 'Bagi', '87475608836', 'K5', 'Комфорт', '2022-04-30', NULL, NULL, NULL);
+(2, '2022-04-30', 'Bagi', '87475608836', 'K5', 'Комфорт', '2022-04-30', NULL, NULL, NULL),
+(3, '2022-05-02', 'Bagi', '87475608836', 'Seltos', 'Эконом', '2022-05-10', NULL, NULL, NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -427,6 +467,12 @@ ALTER TABLE `harackter`
 -- Индексы таблицы `orders`
 --
 ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `orders1`
+--
+ALTER TABLE `orders1`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -515,7 +561,13 @@ ALTER TABLE `harackter`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT для таблицы `orders1`
+--
+ALTER TABLE `orders1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `positions`
@@ -533,7 +585,7 @@ ALTER TABLE `reason`
 -- AUTO_INCREMENT для таблицы `repair`
 --
 ALTER TABLE `repair`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `staff`
@@ -545,13 +597,13 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT для таблицы `tablename`
 --
 ALTER TABLE `tablename`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `testdrive`
 --
 ALTER TABLE `testdrive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

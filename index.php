@@ -50,8 +50,8 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									<img class="img" src="resurses/dr_alyur.jpg" alt="">
 									<div class="detailed__contain flex">
 										<div class="detailed__contant flex">
-											<div class="detailed__content__title">Trade-in</div>
-											<div class="detailed__content__text">Жаңа өзгеріс</div>
+											<div class="detailed__content__title">Жаңа өзгеріс</div>
+											<!-- <div class="detailed__content__text">Жаңа өзгеріс</div> -->
 											<!-- <a href="" class="open__car__about">Подробное</a> -->
 										</div>
 									</div>
@@ -138,7 +138,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 							Di-driver компаниясы автомобильдердің адамзатқа маңыздылығы мен әсерін мойындайды. Біз тұтынушының өмірлік серігі болғымыз келетін, жай өндірушіден тыс рөл атқаруға тырысамыз. Біз Di-driver Group құрамында «өмір бойы автокөлік серіктесі» болу және «жақсы болашақ үшін бірге жұмыс істеу» туралы көзқарасымызды орындай отырып, тұтынушылармен жақсы қарым-қатынаста болуға тырысамыз.
 							</div>
 							<div class="about__image">
-								<img class="img" src="resurses/fon3.jpg" alt="">
+								<img class="img" src="resurses/KIA-K5-1.jpg" alt="">
 							</div>
 						</div>
 					</div>
@@ -289,7 +289,7 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								<div class="order__block__title">Жөндеуге тапсырыс беріңіз</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-									Клиенттің толық аты-жөні
+										Клиенттің толық аты-жөні
 									</div>
 									<input name="fioClient" type="text" class="popap__lable">
 								</div>
@@ -302,13 +302,13 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 								
 								<div class="order__selected__block">
 									<div class="selected__title">
-									Автомобиль маркасы
+										Автомобиль маркасы
 									</div>
 									<input name="automobile" type="text" class="popap__lable">
 								</div>
 								<div class="order__selected__block">
 									<div class="selected__title">
-									 Бұзылу себептері
+									 	Бұзылу себептері
 									</div>
 									<select name="cause" id="" class="selected__popap">
 										<?php
@@ -341,12 +341,6 @@ $staffs2 = mysqli_query($connect, "SELECT * FROM `staff` where `postionId`='5'")
 									</div>
 									<input name="numClient" type="tel" placeholder="+7 (701) XXX-XX-XX" class="popap__lable">
 								</div>
-								<!-- <div class="order__selected__block">
-									<div class="selected__title">
-										Паспорт клиента
-									</div>
-									<input name="pasportClient" type="text" class="popap__lable">
-								</div> -->
 								<div class="order__selected__block">
 									<div class="selected__title">
 										Автомобиль
