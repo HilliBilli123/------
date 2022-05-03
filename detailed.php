@@ -50,10 +50,10 @@ print_r($needHarackter);
 					</a>
 				</div>
 				<div class="menu__link__block"><a href="index.php" class="menu__link">Негізгі</a></div>
+				<div class="menu__link__block"><a href="#har" class="menu__link">Сипаттама</a></div>
 				<div class="menu__link__block"><a href="#int" class="menu__link">Интерьер</a></div>
 				<div class="menu__link__block"><a href="#sec" class="menu__link">Қауіпсіздік</a></div>
 				<div class="menu__link__block"><a href="#eng" class="menu__link">Қозғалтқыш</a></div>
-				<div class="menu__link__block"><a href="pages/admin/index.php" class="menu__link">Вход</a></div>
 			</div>
 		</div>
 	</header>
@@ -65,7 +65,7 @@ print_r($needHarackter);
 				</div>
 			</div>
 		</section>
-		<section class="harackter">
+		<section class="harackter" id="har">
 			<div class="harackter__contein _contein">
 				<div class="detail__titels">Сипаттама</div>
 				<div class="harackter__content">
