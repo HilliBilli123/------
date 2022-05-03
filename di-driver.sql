@@ -4,6 +4,7 @@
 --
 -- Хост: 127.0.0.1:3306
 -- Время создания: Май 03 2022 г., 14:47
+
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -62,20 +63,18 @@ CREATE TABLE `cars` (
 -- Дамп данных таблицы `cars`
 --
 
-INSERT INTO `cars` (`id`, `name`, `yearRelease`, `new`, `classId`, `price`, `imagePath`, `harackterId`, `detailed`) VALUES
-(1, 'Seltos', '2020', '0', '5', '7990000', 'resurses/seltos.png', '1', '1'),
-(2, 'K5', '2022', '1', '3', '7990000', 'resurses/K5.png', '1', '2'),
-(3, 'Cerato', '2022', '1', '3', '7990000', 'resurses/cerato.png', '1', '3'),
-(4, 'Rio X', '2021', '1', '2', '79000000', 'resurses/rioX.png', '1', '4'),
-(5, 'Picanto', '2020', '0', '1', '79000000', 'resurses/picanto.png', '3', '5'),
-(6, 'Soul', '2019', '0', '2', '79000000', 'resurses/soul.png', '1', '6'),
-(7, 'Rio', '2020', '0', '2', '79000000', 'resurses/rio.png', '1', '7'),
-(8, 'Sportage', '2021', '1', '5', '79000000', 'resurses/sportage.png', '2', '8'),
-(9, 'Sorento', '2021', '1', '5', '790000000', 'resurses/sorento.png', '2', '9'),
-(10, '123', '2131', '123', '1', '123', 'upload/16515655811.jpg', '1', '4'),
-(11, '123', '2131', '123', '1', '123', 'pages/admin/upload/16515776241.jpg', '1', '2'),
-(12, '123', '2131', '123', '1', '123', 'pages/admin/upload/16515776621.jpg', '1', '4'),
-(13, '123', '2131', '123', '1', '123', 'pages/admin/upload/16515780371.jpg', '1', '6');
+
+INSERT INTO `cars` (`id`, `name`, `yearRelease`, `new`, `classId`, `price`, `imagePath`, `harackterId`) VALUES
+(1, 'Seltos', '2020', '0', '5', '7990000', 'resurses/seltos.png', '1'),
+(2, 'K5', '2022', '1', '3', '7990000', 'resurses/K5.png', '1'),
+(3, 'Cerato', '2022', '1', '3', '7990000', 'resurses/cerato.png', '1'),
+(4, 'Rio X', '2021', '1', '2', '79000000', 'resurses/rioX.png', '1'),
+(5, 'Picanto', '2020', '0', '1', '79000000', 'resurses/picanto.png', '3'),
+(6, 'Soul', '2019', '0', '2', '79000000', 'resurses/soul.png', '1'),
+(7, 'Rio', '2020', '0', '2', '79000000', 'resurses/rio.png', '1'),
+(8, 'Sportage', '2021', '1', '5', '79000000', 'resurses/sportage.png', '2'),
+(9, 'Sorento', '2021', '1', '5', '790000000', 'resurses/sorento.png', '2'),
+(10, '123', '2131', '123', '1', '123', 'upload/16515655811.jpg', '1');
 
 -- --------------------------------------------------------
 
@@ -504,7 +503,8 @@ ALTER TABLE `breakdown`
 -- AUTO_INCREMENT для таблицы `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 
 --
 -- AUTO_INCREMENT для таблицы `classes`

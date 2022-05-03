@@ -14,6 +14,7 @@ if ($_FILES['image']['name']) {
 		header('Location: ../index.php');
 	}
 	// echo $path;
+	$path = "pages/admin/" .$path;
 	if ($table == "cars") {
 		mysqli_query($connect, "INSERT INTO `cars`(`name`, `yearRelease`, `new`, `classId`, `price`, `imagePath`, `harackterId`) VALUES ('$name','$yearRelease','$new','1','$price','$path','1')");
 	}
