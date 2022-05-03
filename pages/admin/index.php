@@ -428,8 +428,10 @@ foreach ($positions as $position) {
                                                 // print_r($coons);
                                                 $i = 0;
                                                 foreach($components as $component){
+                                                    // echo $coons[$i];
                                                     // echo $coon, $component["name"];
                                                     if($coons[$i] == $component["name"]){
+                                                        
                                                     ?>
                                                         <div class="components__input"><input type="checkbox" checked name="components[]" value="<?echo $component["name"]?>" id=""><?echo $component["name"]?></div>
                                                     <?
@@ -438,8 +440,11 @@ foreach ($positions as $position) {
                                                         ?>
                                                         <div class="components__input"><input type="checkbox" name="components[]" value="<?echo $component["name"]?>" id=""><?echo $component["name"]?></div>
                                                     <?
+                                                    }
+                                                    if(count($coons) > 1){
+                                                        $i++;
                                                     } 
-                                                    $i++;
+                                                    
                                                 }
                                             ?>
                                             </div>

@@ -5,6 +5,7 @@ $name = $_POST["name"];
 $yearRelease = $_POST["yearRelease"];
 $new = $_POST["new"];
 $price = $_POST["price"];
+$detail = rand(1,9);
 include "../../../inc/connect.php";
 // print_r($_POST);
 if ($_FILES['image']['name']) {
@@ -13,10 +14,12 @@ if ($_FILES['image']['name']) {
 		$_SESSION['message'] = 'Ошибка при загрузке фото';
 		header('Location: ../index.php');
 	}
-	// echo $path;
-	$path = "pages/admin/" .$path;
+	
+	$path1 = "pages/admin/" .$path;
+	// echo $path1;
+	// echo $detail;
 	if ($table == "cars") {
-		mysqli_query($connect, "INSERT INTO `cars`(`name`, `yearRelease`, `new`, `classId`, `price`, `imagePath`, `harackterId`) VALUES ('$name','$yearRelease','$new','1','$price','$path','1')");
+		mysqli_query($connect, "INSERT INTO `cars` (`name`, `yearRelease`, `new`, `classId`, `price`, `imagePath`, `harackterId`, `detailed`) VALUES ('$name','$yearRelease','$new','1','$price','$path1','1','$detail')");
 	}
 } else {
 	$_SESSION['message'] = 'Загрузите фото';

@@ -34,13 +34,18 @@ include "../../../inc/connect.php";
 // print_r($break);
 if ($table == "cars") {
 	if ($_FILES['image']['name']) {
-		// echo "323123123";
 		$path = 'upload/' . time() . $_FILES['image']['name'];
-		if (!move_uploaded_file($_FILES['image']['tmp_name'], "../" . $path)) {
+		if (!move_uploaded_file($_FILES['image']['tmp_name'], "../" .$path)) {
 			$_SESSION['message'] = 'Ошибка при загрузке фото';
 			header('Location: ../index.php');
 		}
-		mysqli_query($connect, "UPDATE `cars` SET `name` = '$name',`yearRelease` = '$yearRelease',`new` = '$new',`price` = '$price', `imagePath` = '$path' WHERE `id` = '$id'");
+		
+		$path1 = "pages/admin/" .$path;
+		// echo $path1;
+		// echo $detail;
+		if ($table == "cars") {
+			mysqli_query($connect, "INSERT INTO `cars` (`name`, `yearRelease`, `new`, `classId`, `price`, `imagePath`, `harackterId`, `detailed`) VALUES ('$name','$yearRelease','$new','1','$price','$path1','1','$detail')");
+		}
 	} else {
 		$_SESSION['message'] = 'Загрузите фото';
 		header("Location: ../index.php");
