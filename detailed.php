@@ -181,25 +181,25 @@ print_r($needHarackter);
 		</section>
 	</div>	
 	
-    <footer class="footer" id="footerMain">
+	<footer class="footer" id="footerMain">
 		<div class="footer__cpntainer _contein">
 			<div class="footer__body">
 				<div class="footer__contacts">
-					<div class="footer__contacts _footer-title">Контакты</div>
+					<div class="footer__contacts _footer-title">Контактілер</div>
 					<ul class="footer__contacts__list">
-						<li><a href="tel:87475608836" class="footer__contacts__link">87475608836</a></li>
-						<li><a href="tel:87475608836" class="footer__contacts__link">87475608836</a></li>
-						<li><a href="tel:87475608836" class="footer__contacts__link icon-whatsapp">87475608836</a></li>
-						<li><a href="" class="footer__contacts__link icon-location2">Аль фараби 110</a></li>
+						<li><a href="tel:87475608836" class="footer__contacts__link">87475251918</a></li>
+						<li><a href="tel:87475608836" class="footer__contacts__link">87475251918</a></li>
+						<li><a href="tel:87475608836" class="footer__contacts__link icon-whatsapp">87475251918</a></li>
+						<li><a href="" class="footer__contacts__link icon-location2">Туран 53А</a></li>
 					</ul>
 				</div>
 				<div class="footer__socialMedia">
-					<div class="footer__socialMedia _footer-title">Следите за нами</div>
+					<div class="footer__socialMedia _footer-title">Бізге жазылыңыздар</div>
 					<ul class="footer__socialMedia__list">
-						<li><a href="" class="footer__socialMedia__link icon-facebook2">TestDrive</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-instagram">TestDrive</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-telegram">TestDrive</a></li>
-						<li><a href="" class="footer__socialMedia__link icon-telegram">TestDrive</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-facebook2">DiDriver</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-instagram">DiDriver</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-telegram">DiDriver</a></li>
+						<li><a href="" class="footer__socialMedia__link icon-telegram">DiDriver</a></li>
 					</ul>
 				</div>
 			</div>
