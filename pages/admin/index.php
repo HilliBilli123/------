@@ -122,7 +122,7 @@ foreach ($positions as $position) {
                             <div class="table__header__title table__title">Год выпуска</div>
                             <div class="table__header__title table__title">Новый?</div>
                             <!-- <div class="table__header__title table__title">Класс</div> -->
-                            <div class="table__header__title table__title">Стоймость</div>
+                            <div class="table__header__title table__title">Цена</div>
                             <div class="table__header__title table__title">Редактировать</div>
                             <div class="table__header__title table__title">Удалить</div>
                         </div>
@@ -183,8 +183,8 @@ foreach ($positions as $position) {
                             <input type="text" style="display: none;" value="classes" name="table">
                             <label for="name">Наименование</label>
                             <input type="text" name="name">
-                            <label for="name">Цена</label>
-                            <input type="text" name="price">
+                            <!-- <label for="name">Цена</label> -->
+                            <input type="text" name="price" value="0" style="display: none;">
                             <button type="submit">Добавить</button>
                         </div>
                     </form>
@@ -192,7 +192,7 @@ foreach ($positions as $position) {
                         <div class="body__table__line body__table__header flex">
                             <div class="table__header__title table__title">Код</div>
                             <div class="table__header__title table__title">Наименование</div>
-                            <div class="table__header__title table__title">Цена</div>
+                            <!-- <div class="table__header__title table__title">Цена</div> -->
                             <div class="table__header__title table__title">Редактировать</div>
                             <div class="table__header__title table__title">Удалить</div>
                         </div>
@@ -203,7 +203,7 @@ foreach ($positions as $position) {
                             <div class="body__table__line _table-color flex">
                                 <div class="table__title"><? echo $breakdown["id"] ?></div>
                                 <div class="table__title"><? echo $breakdown["name"] ?></div>
-                                <div class="table__title"><? echo $breakdown["price"] ?></div>
+                                <!-- <div class="table__title"><? echo $breakdown["price"] ?></div> -->
                                 <div class="table__title"><a href="" class="icon-edit"></a>
                                     <form action="inc/edit.php" method="post" class="form">
                                         <div class="from__content__add">
@@ -211,8 +211,8 @@ foreach ($positions as $position) {
                                             <input type="text" style="display: none;" value="classes" name="table">
                                             <label for="name">Наименование</label>
                                             <input type="text" name="name" value="<? echo $breakdown["name"] ?>">
-                                            <label for="name">Цена</label>
-                                            <input type="text" name="price" value="<? echo $breakdown["price"] ?>">
+                                            <!-- <label for="name">Цена</label>
+                                            <input type="text" name="price" value="<? echo $breakdown["price"] ?>"> -->
                                             <button type="submit">Изменить</button>
                                         </div>
                                     </form>
@@ -329,7 +329,7 @@ foreach ($positions as $position) {
                                 }
                             ?>
                             </div>
-                            <label for="name">Стоймость</label>
+                            <label for="name">Статус</label>
                             <input type="text" name="price">
                             <button type="submit">Добавить</button>
                         </div>
@@ -342,7 +342,7 @@ foreach ($positions as $position) {
                             <div class="table__header__title table__title">Машина</div>
                             <div class="table__header__title table__title">Класс</div>
                             <div class="table__header__title table__title">Компоненты</div>
-                            <div class="table__header__title table__title">Цена</div>
+                            <div class="table__header__title table__title">Статус</div>
                             <!-- <div class="table__header__title table__title">Дата продажи</div> -->
                             <div class="table__header__title table__title">Редактировать</div>
                             <div class="table__header__title table__title">Удалить</div>
@@ -444,7 +444,7 @@ foreach ($positions as $position) {
                                             ?>
                                             </div>
                                             <!-- <input type="text" name="components" value="<? echo $breakdown["components"] ?>"> -->
-                                            <label for="name">Стоймость</label>
+                                            <label for="name">Статус</label>
                                             <input type="text" name="price" value="<? echo $breakdown["price"] ?>">
                                             <button type="submit">Добавить</button>
                                         </div>
@@ -735,8 +735,10 @@ foreach ($positions as $position) {
                             <div class="table__header__title table__title">ФИО</div>
                             <div class="table__header__title table__title">Машина</div>
                             <div class="table__header__title table__title">Телефон</div>
-                            <div class="table__header__title table__title">Должность</div>
+                            <div class="table__header__title table__title">Причина поломки</div>
                             <div class="table__header__title table__title">Статус</div>
+                            <div class="table__header__title table__title">Редактирование</div>
+                            <div class="table__header__title table__title">Удалить</div>
                         </div>
                         <?php
                         $breakdowns = mysqli_query($connect, "SELECT * FROM `repair`");
@@ -748,7 +750,8 @@ foreach ($positions as $position) {
                                 <div class="table__title"><? echo $breakdown["automobile"] ?></div>
                                 <div class="table__title"><? echo $breakdown["numClient"] ?></div>
                                 <div class="table__title"><? echo $breakdown["cause"] ?></div>
-                                <?
+                                <div class="table__title"><? echo $breakdown["fioMechanic"] ?></div>
+                                <!-- <?
                                 if (!$breakdown["dateEnd"]) {
                                     $now = new DateTime();
                                     $date = new DateTime($breakdown["date"]);
@@ -777,7 +780,27 @@ foreach ($positions as $position) {
                                     <div class="table__title" id="chek">Ремонт закончен</div>
                                 <?
                                 }
-                                ?>
+                                ?> -->
+                                <div class="table__title"><a href="" class="icon-edit"></a>
+                                    <form action="inc/edit.php" method="post" class="form">
+                                        <div class="from__content__add">
+                                            <input type="text" style="display: none;" name="id" value="<? echo $breakdown["id"] ?>">
+                                            <input type="text" style="display: none;" value="repair" name="table">
+                                            <label for="name">ФИО</label>
+                                            <input type="text" name="fioClient" value="<? echo $breakdown["fioClient"] ?>">
+                                            <label for="name">Машина</label>
+                                            <input type="text" name="car" value="<? echo $breakdown["automobile"] ?>">
+                                            <label for="name">Телефон</label>
+                                            <input type="text" name="numClient" value="<? echo $breakdown["numClient"] ?>">
+                                            <label for="name">Причина поломки</label>
+                                            <input type="text" name="cause" value="<? echo $breakdown["cause"] ?>">
+                                            <label for="name">Статус</label>
+                                            <input type="text" name="stats" value="<? echo $breakdown["fioMechanic"] ?>">
+                                            <button type="submit">Добавить</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="table__title"><a href="inc/delete.php?id=<? echo $breakdown['id'] ?>&table=repair" class="icon-bin"></a></div>
                             </div>
                         <?php
                         }

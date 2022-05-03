@@ -12,7 +12,10 @@ $fioClient = $_POST["fioClient"];
 $car = $_POST["car"];
 $class = $_POST["class"];
 $components = $_POST["components"];
-
+$numClient = $_POST["numClient"];
+$cause = $_POST["cause"];
+$stats = $_POST["stats"];
+$dateTest = $_POST["dateTest"];
 if($components){
 	foreach($components as $component){
 		if(!$txt){
@@ -24,7 +27,7 @@ if($components){
 }else{
 	$txt = NULL;
 }
-$numClient = $_POST["numClient"];
+
 
 include "../../../inc/connect.php";
 // $break = mysqli_query($connect, "SELECT * FROM `cars` WHERE `id` = '$id'");
@@ -53,11 +56,17 @@ if ($table == "classes") {
 if ($table == "components") {
 	mysqli_query($connect, "UPDATE $table SET `name` = '$name' , `price` = '$price' WHERE `id`='$id'");
 }
-if ($table == "change") {
-	mysqli_query($connect, "UPDATE `repair` SET `dateEnd` = '$chek' WHERE `id`='$id'");
-}
+// if ($table == "change") {
+// 	mysqli_query($connect, "UPDATE `repair` SET `dateEnd` = '$chek' WHERE `id`='$id'");
+// }
 if ($table == "orders") {
 	mysqli_query($connect, "UPDATE `orders` SET `fioClient` = '$fioClient', `numClient` = '$numClient', `carId` = '$car', `clasessesId` = '$class', `components` = '$txt', `price` = '$price' WHERE `id`='$id'");
+}
+if ($table == "repair") {
+	mysqli_query($connect, "UPDATE `repair` SET `fioClient` = '$fioClient', `numClient` = '$numClient', `automobile` = '$car', `fioMechanic` = '$stats', `cause` = '$cause' WHERE `id`='$id'");
+}
+if ($table == "testdrive") {
+	mysqli_query($connect, "UPDATE `testdrive` SET `fioClient` = '$fioClient', `numClient` = '$numClient', `automobile` = '$car', `classId` = '$class', `responsible` = '$stats', `dateTest` = '$dateTest' WHERE `id`='$id'");
 }
 
 // mysqli_query($connect, "UPDATE `repair` SET `dateEnd`='$date' WHERE `id`='$id'");
