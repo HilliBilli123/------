@@ -7,14 +7,15 @@ $details = mysqli_query($connect, "SELECT * FROM `detailed`");
 $classes = mysqli_query($connect, "SELECT * FROM `classes`");
 $cars = mysqli_query($connect, "SELECT * FROM `cars`");
 $harackters = mysqli_query($connect, "SELECT * FROM `harackter`");
-foreach ($details as $detail) {
-	if($carId == $detail['carId']) {
-		$needDetail = $detail;
-	}
-}
 foreach ($cars as $car) {
 	if($carId == $car['id']) {
 		$needCar = $car;
+	}
+}
+
+foreach ($details as $detail) {
+	if($detail['id'] == $needCar['detailed']) {
+		$needDetail = $detail;
 	}
 }
 $harackterId = $needCar['harackterId'];

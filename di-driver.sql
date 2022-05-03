@@ -3,7 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 03 2022 г., 12:19
+-- Время создания: Май 03 2022 г., 14:47
+
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -54,12 +55,14 @@ CREATE TABLE `cars` (
   `classId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `imagePath` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `harackterId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `harackterId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `detailed` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Машины';
 
 --
 -- Дамп данных таблицы `cars`
 --
+
 
 INSERT INTO `cars` (`id`, `name`, `yearRelease`, `new`, `classId`, `price`, `imagePath`, `harackterId`) VALUES
 (1, 'Seltos', '2020', '0', '5', '7990000', 'resurses/seltos.png', '1'),
@@ -501,6 +504,7 @@ ALTER TABLE `breakdown`
 --
 ALTER TABLE `cars`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 
 --
 -- AUTO_INCREMENT для таблицы `classes`
